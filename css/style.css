@@ -34,6 +34,9 @@ header{
     justify-content:space-between;
     align-items: center;
     padding: 0px 70px;
+
+    position:sticky;
+    top: 0px;
 }
 
 header img{
@@ -66,4 +69,88 @@ header nav a:hover{
     transition: all 0.3s ease-in;
     background-color: var(--cor-bg-body);
     color: var(--cor-letra-menu-hover);
+}
+
+#section1{
+height: 250px;
+background-color: var(--cor-bg-section1);
+}
+
+#section2{
+height: 250px;
+background-color: var(--cor-bg-section2);
+}
+
+#section3{
+height: 250px;
+background-color: var(--cor-bg-section3);
+}
+
+#section4{
+height: 250px;
+background-color: var(--cor-bg-section4);
+}
+
+footer{
+    background-color: var(--cor-bg-footer);    
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    align-items: center;
+    align-content: center;
+    padding: 30px 70px;
+}
+
+footer img#logo-footer{
+    height: 130px;
+    padding: 10px;
+}
+
+footer div#div-logo-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer div h2{
+    color: var(--cor-letra-menu);
+    
+}
+
+footer div{
+    color: var(--cor-letra-menu);
+    font-size: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    padding: 20px 0px;
+            
+}
+
+footer div ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+footer li.title{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px 0px;
+}
+
+footer iframe{
+    padding: 10px 0px;
+}
+
+.redes-sociais{
+    width: 40px;
+    height: 35px;
+}
+
+#redes-sociais{
+    display: inline-block; 
 }
