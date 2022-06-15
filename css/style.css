@@ -9,14 +9,14 @@
 
 :root{
     --cor-bg-body: #ffffff;
-    --cor-bg-header: #A9A9A9;
-    --cor-bg-section1: #D3D3D3;
+    --cor-bg-header: #000000;
+    --cor-bg-section1: #ffffff;
     --cor-bg-section2: #ffffff;
-    --cor-bg-section3: #D3D3D3;
-    --cor-bg-section4: #878787;
-    --cor-bg-footer: #4D4D4D;
+    --cor-bg-section3: #ffffff;
+    --cor-bg-section4: #ffffff;
+    --cor-bg-footer: #242323;
     --cor-letra-menu: #ffffff;
-    --cor-letra-menu-hover: #A9A9A9;
+    --cor-letra-menu-hover: #000000;
 }
 
 body{
