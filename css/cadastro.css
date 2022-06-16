@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+#section2 {
+    height: 1000px;
+    
+}
+
+h1 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 50px;
+    color: #575757;
+}
+main form {
+    min-width: min(50%, 538px);
+    margin-right: 300px;
+    margin-left: 100px;
+    
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+}
+.input input {
+    height: 25px;
+    vertical-align: bottom;
+}
+
+.input + .input{
+    margin-top: 15px;
+}
+
+.input > label,
+.input div >label {
+    font-size: 20px;
+    line-height: 25px;
+    margin-bottom: 3px;
+    
+}
+main form button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 44px;
+    background: #2b292a;
+
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px;
+
+    border: none;
+    margin-top: 30px;
+    margin-left: min(43.5%, 585px);
+    cursor: pointer;
+    transition: all 600ms;
+    
+}
+main form button:hover {
+    text-decoration: underline;
+    transition: all 0.3s ease-in;
+    background-color: white;
+    color: black;
+}
+.file input {
+    display: none;
+}
+.file {
+    
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    
+}
+.file div {
+    display: flex;
+    justify-content: center;
+    
+}
+.file img {
+    
+    width: 100px;
+    height: 100px;
+    margin: 4px;
+    
+}
+
+.file div label {
+    
+    background-color: #807b7b;
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    padding: 0 15px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.file div label:hover {
+    background-color: #181212;
+}
