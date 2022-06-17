@@ -7,12 +7,13 @@
     <title>Belle Design - Home</title>
 
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login.css">
 
 </head>
 <body>
     <header>
         
-        <img src="./img/logo-header.jpeg" alt="Logomarca da Belle Design. Possui a letra D dentro da letra B com um fundo de imagem que remete a textura de um marmore preto com alguns detalhes em branco">
+        <img src="./img/logo-footer.jpg" alt="Logomarca da Belle Design. Possui a letra D dentro da letra B com um fundo de imagem que remete a textura de um marmore preto com alguns detalhes em branco">
 
         <nav>
             <ul>
@@ -25,9 +26,26 @@
     
     <main>
 
-<section id="section2">
-    LOGIN
-</section>
+
+    <div class="login">
+        <div class="header">
+            <h1>Entrar</h1>
+        </div>
+        <div class="body">
+            <form action="/usuarios" method="post" enctype="multipart/form-data">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha">
+                <a href="#" class="forget">Esqueceu a Senha?</a>
+            </form>
+            <button type="submit">Entrar</button>
+        </div>
+       <p class="footer">Novo para Belle Design?
+        <a href="./cadastro.html">Criar Conta</a>
+       </p>
+    </div>
+
 
     </main>
 
