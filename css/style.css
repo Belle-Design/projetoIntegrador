@@ -154,3 +154,109 @@ footer iframe{
 #redes-sociais{
     display: inline-block; 
 }
+
+.dot1 {
+    position: absolute;
+    margin-top: 94px;
+    margin-left: 160px;
+    height: 15px;
+    width: 15px;
+    background-color: #050;
+    border-radius: 50%;
+    display: flex;
+  }
+  
+  .dot2 {
+    position: absolute;
+    margin-top: 94px;
+    margin-left: 355px;
+    height: 15px;
+    width: 15px;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+  }
+  
+  .dot3 {
+    position: absolute;
+    margin-top: 94px;
+    margin-left: 520px;
+    height: 15px;
+    width: 15px;
+    background-color: yellow;
+    border-radius: 50%;
+    display: flex;
+  }
+  
+  .dot4 {
+    position: absolute;
+    margin-top:94px;
+    margin-left: 695px;
+    height: 15px;
+    width: 15px;
+    background-color: #000;
+    border-radius: 50%;
+    display: flex;
+  }
+  
+  .linha {
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 100px;
+    background-color: green;
+    height: 3px;
+    width: 690px;
+  }
+  
+  principal {
+    position: relative;
+  }
+  
+  .caixa1 {
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    margin-left: 140px;
+    /* border: 1px gray; */
+  }
+  
+  .caixa2 {
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    margin-left: 315px;
+    margin-top: 112px;
+    /* border: 1px gray; */
+  }
+  
+  .caixa3 {
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    margin-left: 500px;
+    /* border: 1px gray; */
+  }
+  
+  .caixa4 {
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    margin-left: 665px;
+    margin-top: 112px;
+    /* border: 1px gray; */
+  }
+  
+  
+  .texto1 {
+    width : 90%;
+    height: 50px;
+    display: block;
+    margin-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4px;
+    /* overflow: auto; */
+    font-size: 12px;
+    background-color: white;
+  }
+  
