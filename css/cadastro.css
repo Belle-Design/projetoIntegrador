@@ -6,10 +6,9 @@
     box-sizing: border-box;
 }
 .body {
-    width: 340px;
+    width: 1000px;
     margin: 0 auto;
-    height:600px;
-
+    
 }
 #section2 {
     height: 1000px;
