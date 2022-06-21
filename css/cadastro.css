@@ -5,6 +5,11 @@
     outline: 0;
     box-sizing: border-box;
 }
+.body  {
+    width: 1000px;
+    margin: 0 auto;
+
+}
 #section2 {
     height: 1000px;
 
@@ -46,23 +51,19 @@ main form {
     
 }
 main form button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
+
+    width: 200px;
     height: 44px;
     background: #2b292a;
-
     color: #fff;
     font-weight: 500;
     font-size: 20px;
-
     border: none;
     margin-top: 30px;
-    margin-left: min(43.5%, 585px);
+    margin-left: 200px;
+    
     cursor: pointer;
     transition: all 600ms;
-    
 }
 main form button:hover {
     text-decoration: underline;
