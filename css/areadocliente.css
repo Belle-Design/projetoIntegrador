@@ -8,8 +8,28 @@ h1{
     text-align: center;
 }
 
+#informacaocliente{
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+main form {
+    min-width: min(50%, 538px);
+    max-width:max-content;
+  
+}
+
+form.formareadocliente{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
 .input-group {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     padding: 10px 15px;
     
@@ -56,8 +76,7 @@ main form button {
     font-size: 20px;
 
     border: none;
-    margin-top: 30px;
-    margin-left: min(43.5%, 585px);
+   margin: 20px auto;
     cursor: pointer;
     transition: all 600ms;
     

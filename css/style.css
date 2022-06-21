@@ -34,7 +34,7 @@ header{
     display: flex;
     justify-content:space-between;
     align-items: center;
-    padding: 0px 70px;
+    
 
     position:sticky;
     top: 0px;
@@ -42,12 +42,16 @@ header{
 
 header img{
     height: 70px;
-}
+    margin-left: 10px;
+ }
+
+
 
 header nav ul{
     display: flex;
     list-style: none;
     align-items: center;
+    
 }
 
 header ul li{
