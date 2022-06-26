@@ -8,6 +8,8 @@
 .body  {
     width: 1000px;
     margin: 0 auto;
+    align-items: center;
+
 
 }
 #section2 {
@@ -25,8 +27,8 @@ h1 {
 }
 main form {
     min-width: min(50%, 538px);
-    margin-right: 300px;
-    margin-left: 100px;
+    margin-right: 200px;
+    margin-left: 200px;
     
 }
 
