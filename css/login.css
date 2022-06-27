@@ -6,10 +6,10 @@
     box-sizing: border-box;
 }
 .login {
-    width: 340px;
+    width: 1000px;
     margin: 0 auto;
     height:600px;
-
+    
 }
 .header {
     margin-bottom: 16px;
@@ -77,12 +77,9 @@
     border-radius: 6px;
 }
 .footer {
+    width: 340px;
     display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    margin-bottom: 10px;
+    margin-left: 330px;
     margin-top: 16px;
     padding: 16px 16px;
     text-align: center;
