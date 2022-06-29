@@ -23,14 +23,14 @@
 }
 .body {
     width: 340px;
-    height: 275px;
+    height: 300px;
     background-color: rgba(206, 203, 203, 0.664);
     border-top: 1px solid gray;
     border-radius: 6px;
     padding: 20px;
     font-size: 14px;
-
 }
+
 .body label {
     display: block;
     margin-bottom: 8px;
@@ -56,7 +56,7 @@
     margin-bottom: 25px;
 
 }
-.body button {
+/* .body button {
     
     display: block;
     width: 100%;
@@ -75,7 +75,45 @@
     user-select: none;
     border: 1px solid;
     border-radius: 6px;
+} */
+
+div.botao {
+    display: flex;
+    margin: auto;
+    width: 300px;
 }
+
+.botaologin {
+    
+    width: 200px;
+      text-align:center;
+      height: 40px;
+      
+    color: rgb(0, 0, 0);
+    background-color: rgb(242, 247, 247);
+    border-color: black;
+      
+      
+      margin: auto;
+      font-size: 16px;
+      cursor: pointer;
+      user-select: none;
+      border: 1px solid;
+      border-radius: 6px;
+      
+      text-decoration: none;
+      transition: all 0.3s ease-out;
+      padding: 7px;
+  }
+  
+  
+  
+  .botaologin:hover {
+    background-color: var(--cor-bg-header);
+    color: var(--cor-bg-body);
+    }
+
+
 .footer {
     width: 340px;
     display: block;
