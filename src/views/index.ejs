@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belle Design - Home</title>
-
-    <link rel="stylesheet" href="./css/style.css">
-
-</head>
-<body>
-    <header>
-        
-        <img src="./img/logo-footer.jpg" alt="Logomarca da Belle Design. Possui a letra D dentro da letra B com um fundo de imagem que remete a textura de um marmore preto com alguns detalhes em branco">
-
-        <nav>
-            <ul>
-                <li><a href="./index.html">HOME</a></li>
-                <li><a href="./login.html">ENTRAR</a></li>
-                <li><a href="./cadastro.html">CADASTRAR</a></li>
-            </ul>
-        </nav>
-    </header>
+<%- include('./partials/header') %>
     
     <main>
         <div class="body">
@@ -170,50 +147,9 @@
                             <img src="./img/section4pict2.jpg" alt="">
                         </div>
                     </div>
-                </div>
+        
             </section>
         </div>
     </main>
 
-</body>
-<footer>
-    <div id="div-logo-footer">
-        <img id="logo-footer" src="./img/logo-footer.jpg" alt="Logomarca da Belle Design com efeito negativo. Possui a letra D dentro da letra B com um fundo de imagem que remete a textura de um marmore branco com alguns detalhes em preto">
-        
-        <h2>Belle Design</h2>
-        
-    </div>
-
-    <div>
-        <ul>
-            <li class="title">LOCALIZAÇÃO</li>
-            <li>R. Prudente de Morais, 524<br>
-                Ipanema, Rio de Janeiro - RJ</li>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1836.5158467637107!2d-43.20209607840539!3d-22.985862005708732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bd51af34f9d0b%3A0xde21fe4c5196e73a!2sR.%20Prudente%20de%20Morais%2C%20524%20-%20Ipanema%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2022420-040%2C%20Brasil!5e0!3m2!1spt-BR!2sca!4v1655057586214!5m2!1spt-BR!2sca" width="350" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </ul>
-    </div>
-
-    <div>
-        <div>
-            <ul>
-                <li class="title">CONTATO</li>
-                <li>(21) 97456 - 6874</li>
-                <li>contato@belledesign.com</li>
-            
-            </ul>
-
-        </div>
-        <div id="redes-sociais">    
-            <ul>
-                <li class="title">REDES SOCIAIS</li>
-                
-            </ul>
-        <a href="https://www.facebook.com/BelleDesignOficial"><img class="redes-sociais" src="./img/facebook.jpg" alt="logo do facebook"></a></span>
-            
-        <a href="https://www.instagram.com/belledesign1.618/"><img class="redes-sociais" src="./img/instagram.jpg" alt="logo do instagram"></a></span>
-            
-        <a href="#linkedinBelleDesign"><img class="redes-sociais" src="./img/linkedin.png" alt="logo do linkedin"></a></li></span>
-        </div>
-    </div>
-</footer>
-</html>
+<%- include('./partials/footer') %>
