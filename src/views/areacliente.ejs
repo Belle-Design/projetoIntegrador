@@ -1,209 +1,210 @@
 <%- include('./partials/header') %>
 
-    <link rel="stylesheet" href="./css/areadocliente.css">
+    <link rel="stylesheet" href="/css/areadocliente.css">
 
     <main>
 
-<section id="informacaocliente">
-    
-    <form class="formareadocliente" action="/areadocliente" method="post" enctype="multipart/form-data">
-<h1>Informações sobre o ambiente a ser reformado/decorado</h1>
+        <section id="informacaocliente">
 
-<fieldset class="fieldset">
-    <legend>LOCAL DA REFORMA/DECORAÇÃO</legend>
-<div>
-    <fieldset>
-        <legend>Área Interna</legend>
-      <ul>
+            <form class="formareadocliente" action="/areadocliente" method="post" enctype="multipart/form-data">
+                <h1>Informações sobre o ambiente a ser reformado/decorado</h1>
 
-          <li>
+                <fieldset class="fieldset">
+                    <legend>LOCAL DA REFORMA/DECORAÇÃO</legend>
+                    <div>
+                        <fieldset>
+                            <legend>Área Interna</legend>
+                            <ul>
 
-              <input type="radio" name="ambiente" id="cozinha" value="cozinha">
-              <label for="cozinha">Cozinha</label>
-          </li>
-          
-       
-          <li>
+                                <li>
 
-              <input type="radio" name="ambiente" id="saladejantar" value="saladejantar">
-              <label for="saladejantar">Sala de Jantar</label>
-          </li>
-          
-  
-          <li>
-
-              <input type="radio" name="ambiente" id="saladeestar" value="saladeestar">
-              <label for="saladeestar">Sala de Estar</label>
-          </li>
-          
-  
-          <li>
-
-              <input type="radio" name="ambiente" id="banheiro" value="banheiro">
-              <label for="banheiro">Banheiro</label>
-          </li>
-          
-  
-          <li>
-
-              <input type="radio" name="ambiente" id="quarto" value="quarto">
-              <label for="quarto">Quarto</label>
-          </li>
-          
-  
-          <li>
-
-              <input type="radio" name="ambiente" id="suite" value="suite">
-              <label for="suite">Suíte</label>
-          </li>
-          
-  
-          <li>
-
-              <input type="radio" name="ambiente" id="lavabo" value="lavabo">
-              <label for="lavabo">Lavabo</label>
-          </li>
-          
-  
-          <li>
-
-              <input type="radio" name="ambiente" id="escritorio" value="escritorio">
-              <label for="escritorio">Escritório</label>
-          </li>
-          
-      </ul>
-
-       
-    </fieldset>
-
-    <fieldset>
-        <legend>Área Externa</legend>
-      <ul>
-
-          <li>
-
-              <input type="radio" name="ambiente" id="piscina" value="piscina">
-              <label for="piscina">Piscina</label>
-          </li>
-       
-          <li>
-
-              <input type="radio" name="ambiente" id="churrasqueira" value="churrasqueira">
-              <label for="churrasqueira">Churrasqueira</label>
-          </li>
-  
-          <li>
-
-              <input type="radio" name="ambiente" id="garagem" value="garagem">
-              <label for="garagem">Garagem</label>
-          </li>
-  
-          <li>
-
-              <input type="radio" name="ambiente" id="jardim" value="jardim">
-              <label for="jardim">Jardim</label>
-          </li>
-  
-          <li>
-
-              <input type="radio" name="ambiente" id="fachada" value="fachada">
-              <label for="fachada">Fachada</label>
-          </li>
-
-      </ul>
-       
-    </fieldset>
-
-    <fieldset>
-        <legend>Corporativo</legend>
-      
-        <ul>
-
-        <li>
-
-            <input type="radio" name="ambiente" id="saladereuniao" value="saladereuniao">
-            <label for="saladereuniao">Sala de Reuniões</label>
-        </li>
-     
-        <li>
-
-            <input type="radio" name="ambiente" id="auditorio" value="auditorio">
-            <label for="auditorio">Auditório</label>
-        </li>
-
-        <li>
-
-            <input type="radio" name="ambiente" id="descompressão" value="descompressão">
-            <label for="descompressão">Área de Descompressão</label>
-        </li>
-
-        <li>
-
-            <input type="radio" name="ambiente" id="refeitorio" value="refeitorio">
-            <label for="refeitorio">Refeitório</label>
-        </li>
-
-        <li>
-
-            <input type="radio" name="ambiente" id="fachada" value="fachada">
-            <label for="fachada">Fachada</label>
-        </li>
-
-        </ul>
-       
-    </fieldset>
-
-    </div>
-    </fieldset>
+                                    <input type="radio" name="ambiente" id="cozinha" value="cozinha">
+                                    <label for="cozinha">Cozinha</label>
+                                </li>
 
 
-</fieldset>
+                                <li>
 
-<fieldset class="fieldset">
-    <legend>MEDIDAS DO LOCAL</legend>
-
-    <div class="input-group">
-        <label for="comprimento">COMPRIMENTO</label>
-        <input type="text" id="comprimento" name="comprimento">
-    </div>
-
-    <div class="input-group">
-        <label for="largura">LARGURA</label>
-        <input type="text" id="largura" name="largura">
-    </div>
-
-    <div class="input-group">
-        <label for="altura">ALTURA (PÉ-DIREITO)</label>
-        <input type="text" id="altura" name="altura">
-    </div>
-
-    </fieldset>
-
-    <fieldset class="fieldset">
-        <legend>FOTOS DO LOCAL</legend>
-    
-        <div class="input-group">
-            <label for="fotos">ANEXE TODAS AS FOTOS QUE TIVER DO LOCAL (Diferentes angulos de visão são muito bem vindos!)</label>
-            <input type="file" id="fotos" name="fotos" multiple>
-        </div>
-    </fieldset>
-
-    <fieldset class="fieldset">
-        <legend>AGENDE UM HORÁRIO COM SEU ARQUITETO</legend>
-    <p></p>
-        <div class="input-group">
-        <label for="datetime1">Dia e horário</label>
-        <input type="datetime-local" name="datetime1" id="datetime1" value="datetime1">
-        </div>
-    </fieldset>
+                                    <input type="radio" name="ambiente" id="saladejantar" value="saladejantar">
+                                    <label for="saladejantar">Sala de Jantar</label>
+                                </li>
 
 
-    <button type="submit">Enviar</button>
+                                <li>
 
-    </form>
-    
-</section>
+                                    <input type="radio" name="ambiente" id="saladeestar" value="saladeestar">
+                                    <label for="saladeestar">Sala de Estar</label>
+                                </li>
+
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="banheiro" value="banheiro">
+                                    <label for="banheiro">Banheiro</label>
+                                </li>
+
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="quarto" value="quarto">
+                                    <label for="quarto">Quarto</label>
+                                </li>
+
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="suite" value="suite">
+                                    <label for="suite">Suíte</label>
+                                </li>
+
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="lavabo" value="lavabo">
+                                    <label for="lavabo">Lavabo</label>
+                                </li>
+
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="escritorio" value="escritorio">
+                                    <label for="escritorio">Escritório</label>
+                                </li>
+
+                            </ul>
+
+
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Área Externa</legend>
+                            <ul>
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="piscina" value="piscina">
+                                    <label for="piscina">Piscina</label>
+                                </li>
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="churrasqueira" value="churrasqueira">
+                                    <label for="churrasqueira">Churrasqueira</label>
+                                </li>
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="garagem" value="garagem">
+                                    <label for="garagem">Garagem</label>
+                                </li>
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="jardim" value="jardim">
+                                    <label for="jardim">Jardim</label>
+                                </li>
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="fachada" value="fachada">
+                                    <label for="fachada">Fachada</label>
+                                </li>
+
+                            </ul>
+
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Corporativo</legend>
+
+                            <ul>
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="saladereuniao" value="saladereuniao">
+                                    <label for="saladereuniao">Sala de Reuniões</label>
+                                </li>
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="auditorio" value="auditorio">
+                                    <label for="auditorio">Auditório</label>
+                                </li>
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="descompressão" value="descompressão">
+                                    <label for="descompressão">Área de Descompressão</label>
+                                </li>
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="refeitorio" value="refeitorio">
+                                    <label for="refeitorio">Refeitório</label>
+                                </li>
+
+                                <li>
+
+                                    <input type="radio" name="ambiente" id="fachada" value="fachada">
+                                    <label for="fachada">Fachada</label>
+                                </li>
+
+                            </ul>
+
+                        </fieldset>
+
+                    </div>
+                </fieldset>
+
+
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <legend>MEDIDAS DO LOCAL</legend>
+
+                    <div class="input-group">
+                        <label for="comprimento">COMPRIMENTO</label>
+                        <input type="text" id="comprimento" name="comprimento">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="largura">LARGURA</label>
+                        <input type="text" id="largura" name="largura">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="altura">ALTURA (PÉ-DIREITO)</label>
+                        <input type="text" id="altura" name="altura">
+                    </div>
+
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <legend>FOTOS DO LOCAL</legend>
+
+                    <div class="input-group">
+                        <label for="fotos">ANEXE TODAS AS FOTOS QUE TIVER DO LOCAL (Diferentes angulos de visão são
+                            muito bem vindos!)</label>
+                        <input type="file" id="fotos" name="fotos" multiple>
+                    </div>
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <legend>AGENDE UM HORÁRIO COM SEU ARQUITETO</legend>
+                    <p></p>
+                    <div class="input-group">
+                        <label for="datetime1">Dia e horário</label>
+                        <input type="datetime-local" name="datetime1" id="datetime1" value="datetime1">
+                    </div>
+                </fieldset>
+
+
+                <button type="submit">Enviar</button>
+
+            </form>
+
+        </section>
 
     </main>
 
-<%- include('./partials/footer') %>
+    <%- include('./partials/footer') %>
