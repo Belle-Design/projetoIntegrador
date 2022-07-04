@@ -19,10 +19,6 @@ app.use('/login', loginrouter);
 app.use('/cadastro', cadastrorouter);
 app.use('/areacliente', clienterouter);
 
-        app.get('/area-do-cliente', (request, response) => {
-            response.render ('areacliente.ejs');
-            });
-
 app.listen(3500, () => {
     console.log('Belle-Design rodando na porta 3500')
 })
