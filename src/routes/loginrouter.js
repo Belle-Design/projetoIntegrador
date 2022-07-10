@@ -3,6 +3,6 @@ const logincontroller = require('../controllers/logincontroller');
 
 const router = Router();
 
-router.get('/entrar', logincontroller.entrar);
+router.get('/', logincontroller.entrar);
 
 module.exports = router;
