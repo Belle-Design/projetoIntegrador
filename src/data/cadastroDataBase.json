@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "email": "exemplo@exemplo.com",
+        "senha": "456654",
+        "confirmarsenha": "456654",
+        "cpfcnpj": "12345678910",
+        "nome": "TESTE ",
+        "sobrenome": "DO TESTE",
+        "birthday": "1212-12-12",
+        "phone": "11-999999999",
+        "receberemail": "email",
+        "receberem": "sms/whatsapp"
+    }
+]

@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const methodOverride = require('method-override');
+
 const indexrouter = require('../src/routes/indexrouter');
 const loginrouter = require('../src/routes/loginrouter');
 const cadastrorouter = require('../src/routes/cadastrorouter');
@@ -12,6 +14,8 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname,'..','public')));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(methodOverride('_method'));
+
 
 app.use('/', indexrouter);
 app.use('/index', indexrouter);
