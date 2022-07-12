@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const {v4: uuid} = require('uuid');
 
 const cadastroFilePath = path.join(__dirname, '..', 'data', 'cadastroDataBase.json');
 
@@ -8,11 +9,13 @@ const cadastrocontroller = {
         response.render ('cadastro');
         },
     saveCadastro:(request, response) => {
+        
         const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
 
         const newCadastro = {
-            id: cadastro.at(-1).id + 1,
-            ...request.body
+            id: uuid(),
+            ...request.body,
+            avatar: request.file.fileName
         };
 
         cadastro.push(newCadastro);

@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "avatar": "foto padrão",
         "email": "exemplo@exemplo.com",
         "senha": "456654",
         "confirmarsenha": "456654",
