@@ -15,7 +15,7 @@ const cadastrocontroller = {
         const newCadastro = {
             id: uuid(),
             ...request.body,
-            avatar: request.file.fileName
+            avatar: request.file.filename
         };
 
         cadastro.push(newCadastro);

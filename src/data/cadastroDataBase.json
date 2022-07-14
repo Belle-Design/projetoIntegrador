@@ -1,16 +1,16 @@
 [
     {
-        "id": 1,
-        "avatar": "foto padrão",
-        "email": "exemplo@exemplo.com",
-        "senha": "456654",
-        "confirmarsenha": "456654",
+        "id": "bc5b74df-65b2-4416-afec-5297f36aead1",
+        "email": "teste@hotmail.com",
+        "senha": "123456789",
+        "confirmarsenha": "123456789",
         "cpfcnpj": "12345678910",
-        "nome": "TESTE ",
-        "sobrenome": "DO TESTE",
+        "nome": "TESTE",
+        "sobrenome": "DO TEST",
         "birthday": "1212-12-12",
-        "phone": "11-999999999",
+        "phone": "11888888888",
         "receberemail": "email",
-        "receberem": "sms/whatsapp"
+        "receberem": "sms/whatsapp",
+        "avatar": "500d1aee-de2c-444a-bcd5-8ec0b861361e-avatar2.jpg"
     }
 ]
