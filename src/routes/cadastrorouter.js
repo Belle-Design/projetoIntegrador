@@ -3,7 +3,7 @@ const multer = require('multer');
 
 const cadastrocontroller = require('../controllers/cadastrocontroller');
 
-const storage = require('../configs/multer');
+const storage = require('../middlewares/multer');
 
 const router = Router();
 const upload = multer({ storage });

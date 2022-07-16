@@ -1,22 +1,27 @@
 const fs = require('fs');
 const path = require('path');
 const {v4: uuid} = require('uuid');
+const bcrypt = require('bcryptjs');
 
 const cadastroFilePath = path.join(__dirname, '..', 'data', 'cadastroDataBase.json');
 
 const cadastrocontroller = {
     cadastro: (request, response) => {
-        response.render ('cadastro');
+        return response.render ('cadastro');
         },
     saveCadastro:(request, response) => {
-        
-        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
+        const { senha } = request.body;
 
+        const senhaHash = bcrypt.hashSync(senha);
+        
         const newCadastro = {
             id: uuid(),
             ...request.body,
-            avatar: request.file.filename
+            avatar: request.file.filename,
+            senha: senhaHash
         };
+
+        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
 
         cadastro.push(newCadastro);
 
@@ -25,7 +30,7 @@ const cadastrocontroller = {
             JSON.stringify(cadastro)
         );
            
-        response.redirect('/');
+        return response.redirect('/');
         
     }
 }

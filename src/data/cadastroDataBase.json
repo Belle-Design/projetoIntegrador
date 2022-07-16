@@ -1,16 +1,30 @@
 [
     {
-        "id": "bc5b74df-65b2-4416-afec-5297f36aead1",
-        "email": "teste@hotmail.com",
-        "senha": "123456789",
-        "confirmarsenha": "123456789",
+        "id": "013d7bd1-26c1-4fb0-9f00-cb17cc91df45",
+        "email": "contato@contato.com",
+        "senha": "$2a$10$XVS/FHHHcibQ5gk9Jg0S9uK6ovxrcUnOBis2VnXOU5b7WzswgkZIS",
+        "confirmarsenha": "123456",
         "cpfcnpj": "12345678910",
-        "nome": "TESTE",
-        "sobrenome": "DO TEST",
+        "nome": "Teste",
+        "sobrenome": "Do Teste",
         "birthday": "1212-12-12",
+        "phone": "11999999999",
+        "receberemail": "email",
+        "receberem": "sms/whatsapp",
+        "avatar": "d407cb68-16fc-4fe5-b26d-b17341801109-avatar1.jpg"
+    },
+    {
+        "id": "35089f3c-d9e7-47b3-a3d3-6ce6796c42f8",
+        "email": "hans@hans.com",
+        "senha": "$2a$10$8xQMISggrslM/d9H5CwXMORYUnvJkrhuVuZKhHbdivFa5C7DGTEOa",
+        "confirmarsenha": "654",
+        "cpfcnpj": "12345678910",
+        "nome": "RAFAEL",
+        "sobrenome": "HANSEN",
+        "birthday": "1540-12-15",
         "phone": "11888888888",
         "receberemail": "email",
         "receberem": "sms/whatsapp",
-        "avatar": "500d1aee-de2c-444a-bcd5-8ec0b861361e-avatar2.jpg"
+        "avatar": "cb75f6ab-0ebd-472b-a958-75da2c1080b6-avatar1.jpg"
     }
 ]

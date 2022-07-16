@@ -1,6 +1,9 @@
 const clientecontroller = {
     cliente: (request, response) => {
-        response.render ('areacliente');
-        }
+        return response.redirect ('/login');
+    },
+    acesso: (request, response)=>{
+        return response.render('areacliente');
+    }
 }
 module.exports = clientecontroller;
