@@ -1,30 +1,16 @@
 [
     {
-        "id": "013d7bd1-26c1-4fb0-9f00-cb17cc91df45",
-        "email": "contato@contato.com",
-        "senha": "$2a$10$XVS/FHHHcibQ5gk9Jg0S9uK6ovxrcUnOBis2VnXOU5b7WzswgkZIS",
-        "confirmarsenha": "123456",
+        "id": "e920b61c-e2b5-4944-a39f-56f259c0293f",
+        "email": "teste@teste.com",
+        "senha": "$2a$10$N9KXieAQekZFzmaprt829OrVK4PXbkbPgCX1tTyM.pAXI.zumuRXe",
+        "confirmarsenha": "$2a$10$Uk5kJXdFrKvTaPUOw/DcauY1VkvKBZ77Pns53qbZ/bozL15VNnl6O",
         "cpfcnpj": "12345678910",
-        "nome": "Teste",
+        "nome": "Cadastro",
         "sobrenome": "Do Teste",
-        "birthday": "1212-12-12",
-        "phone": "11999999999",
-        "receberemail": "email",
-        "receberem": "sms/whatsapp",
-        "avatar": "d407cb68-16fc-4fe5-b26d-b17341801109-avatar1.jpg"
-    },
-    {
-        "id": "35089f3c-d9e7-47b3-a3d3-6ce6796c42f8",
-        "email": "hans@hans.com",
-        "senha": "$2a$10$8xQMISggrslM/d9H5CwXMORYUnvJkrhuVuZKhHbdivFa5C7DGTEOa",
-        "confirmarsenha": "654",
-        "cpfcnpj": "12345678910",
-        "nome": "RAFAEL",
-        "sobrenome": "HANSEN",
-        "birthday": "1540-12-15",
+        "birthday": "1979-04-20",
         "phone": "11888888888",
         "receberemail": "email",
         "receberem": "sms/whatsapp",
-        "avatar": "cb75f6ab-0ebd-472b-a958-75da2c1080b6-avatar1.jpg"
+        "avatar": "fdbe4b68-791e-419f-9aa0-83ec14f7cb3f-a0b4f8b6-cc65-43b3-84f2-690cb0850e7c-171cc82a-bc1e-47be-b652-9b9f9e75b161-avatar1.jpg"
     }
 ]

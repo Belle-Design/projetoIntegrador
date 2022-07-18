@@ -10,15 +10,17 @@ const cadastrocontroller = {
         return response.render ('cadastro');
         },
     saveCadastro:(request, response) => {
-        const { senha } = request.body;
+        const { senha , confirmarsenha} = request.body;
 
         const senhaHash = bcrypt.hashSync(senha);
+        const confirmarsenhaHash = bcrypt.hashSync(confirmarsenha);
         
         const newCadastro = {
             id: uuid(),
             ...request.body,
             avatar: request.file.filename,
-            senha: senhaHash
+            senha: senhaHash,
+            confirmarsenha: confirmarsenhaHash
         };
 
         const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
