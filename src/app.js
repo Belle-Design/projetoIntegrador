@@ -7,6 +7,7 @@ const indexrouter = require('../src/routes/indexrouter');
 const loginrouter = require('../src/routes/loginrouter');
 const cadastrorouter = require('../src/routes/cadastrorouter');
 const clienterouter = require('../src/routes/clienterouter');
+const harmonizadarouter = require('../src/routes/harmonizadarouter');
 
 
 const app = express();
@@ -28,6 +29,7 @@ app.use('/index', indexrouter);
 app.use('/login', loginrouter);
 app.use('/cadastro', cadastrorouter);
 app.use('/areacliente', clienterouter);
+app.use('/harmonizada', harmonizadarouter);
 
 
 app.listen(3500, () => {
