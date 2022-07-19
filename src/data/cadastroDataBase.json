@@ -12,5 +12,19 @@
         "receberemail": "email",
         "receberem": "sms/whatsapp",
         "avatar": "fdbe4b68-791e-419f-9aa0-83ec14f7cb3f-a0b4f8b6-cc65-43b3-84f2-690cb0850e7c-171cc82a-bc1e-47be-b652-9b9f9e75b161-avatar1.jpg"
+    },
+    {
+        "id": "354046ba-c898-4660-b574-fbd04b59a2e7",
+        "email": "hansenrafaelelias@gmail.com",
+        "senha": "$2a$10$Vn36bQkLQ3A5V4KNgmYMN.3mImowS5G48a.NAoaogGOA3XhORZ.qu",
+        "confirmarsenha": "$2a$10$/6m2KgApVx8tg8ELDMNLoePrFsmro0ViRfaESP3oVxTP1In7kDe3a",
+        "cpfcnpj": "12345678910",
+        "nome": "RAFAEL",
+        "sobrenome": "HANSEN",
+        "birthday": "1212-12-12",
+        "phone": "11888888888",
+        "receberemail": "email",
+        "receberem": "sms/whatsapp",
+        "avatar": "23de3b3f-2977-47c6-b56f-354e07e83e80-3e81e5ab-16da-4bf2-8f89-c076ee19dadf-avatar4.jpg"
     }
 ]
