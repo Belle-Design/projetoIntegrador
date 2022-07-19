@@ -54,7 +54,19 @@ header nav ul{
     display: flex;
     list-style: none;
     align-items: center;
+    text-decoration: none;
+
+    font-weight: 350;
+    font-size: 20px;
+    /* line-height: 33px; */
+
+    color: var(--cor-letra-menu);
+    transition: all 0.5s ease-out;
     
+}
+header nav ul img{
+  height: 70px;
+  margin-left: 10px;
 }
 
 header ul li{
