@@ -27,7 +27,9 @@ const logincontroller = {
         request.session.idCadastro = cadastroFound.id;
         request.session.isAuthorized = true;
 
-        return response.render('areacliente');
+        return response.render('areacliente', {
+            nome: cadastroFound.nome
+        });
     }
 }
 
