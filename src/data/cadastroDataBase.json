@@ -1,16 +1,16 @@
 [
     {
-        "id": "e920b61c-e2b5-4944-a39f-56f259c0293f",
+        "id": "c4c5ef98-4a8d-4666-8cbc-8d749649daa6",
         "email": "teste@teste.com",
-        "senha": "$2a$10$N9KXieAQekZFzmaprt829OrVK4PXbkbPgCX1tTyM.pAXI.zumuRXe",
-        "confirmarsenha": "$2a$10$Uk5kJXdFrKvTaPUOw/DcauY1VkvKBZ77Pns53qbZ/bozL15VNnl6O",
+        "senha": "$2a$10$flpgbdo5B.n/Aoi2SR89ZeWkSXT6W4Cob/cRKCi9xwyhbG8Xfg7xK",
+        "confirmarsenha": "$2a$10$IkER0wlZF6F7xA84T24yS.lzucb3GqHK9l5iYcmFpMrO9xWGlljK6",
         "cpfcnpj": "12345678910",
-        "nome": "Cadastro",
-        "sobrenome": "Do Teste",
-        "birthday": "1979-04-20",
+        "nome": "Teste",
+        "sobrenome": "Do Cadastro",
+        "birthday": "1981-06-17",
         "phone": "11888888888",
         "receberemail": "email",
         "receberem": "sms/whatsapp",
-        "avatar": "fdbe4b68-791e-419f-9aa0-83ec14f7cb3f-a0b4f8b6-cc65-43b3-84f2-690cb0850e7c-171cc82a-bc1e-47be-b652-9b9f9e75b161-avatar1.jpg"
+        "avatar": "6f02cf89-7c27-4bb0-976f-51a37dac72c0-1fc6dce1-4a68-48e1-a335-be4703df706e-avatar1.jpg"
     }
 ]
