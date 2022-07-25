@@ -1,6 +1,5 @@
 <%- include('./partials/header') %>
 
-
 <body>
 
     <%- include('./partials/headerNavBar') %>
@@ -10,35 +9,12 @@
 
         <section id="section2">
             <div class="body">
-                <form action="/cadastro" method="post" enctype="multipart/form-data">
+                <form action="/areadocliente/editarcadastro?_method=PUT" method="post" enctype="multipart/form-data">
                     <h1>Criar Conta</h1>
-                    
-                    <div class="preview">
-                        <img src="" alt="" id="file-preview">
-                    </div>
                     <div class="file">
                         <label for="avatar">Carregar Foto</label>
-                       
-                        <input type="file" id="avatar" name="avatar" accept="image/*" onchange="showPreview(event);">
+                        <input type="file" id="avatar" name="avatar">
                     </div>
-                    
-                    
-
-                    <script type="text/javascript">
-                        function showPreview(event) {
-                            if(event.target.files.length > 0){
-                                var src = URL.createObjectURL(event.target.files[0]);
-                                var preview = document.getElementById("file-preview");
-                                preview.src = src;
-                                preview.style.display = "block";
-                            }
-
-                        }
-
-                    </script>
-
-                
-
                     <div class="input">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" required >

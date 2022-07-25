@@ -13,7 +13,8 @@
 
 }
 #section2 {
-    height: 1000px;
+    height: 100%;
+    margin-bottom: 20px;
 
 }
 
@@ -73,9 +74,11 @@ main form button:hover {
     background-color: white;
     color: black;
 }
+
 .file input {
     display: none;
 }
+
 .file {
     
     margin-top: 10px;
@@ -115,4 +118,16 @@ main form button:hover {
 
 .file div label:hover {
     background-color: #181212;
+}
+
+.preview{
+    display: flex;
+    justify-content: center;
+}
+
+.preview img {
+  max-width:200px;
+  margin-bottom: 30px;
+  display: none;
+  
 }

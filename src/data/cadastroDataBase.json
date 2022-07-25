@@ -1,16 +1,1 @@
-[
-    {
-        "id": "c4c5ef98-4a8d-4666-8cbc-8d749649daa6",
-        "email": "teste@teste.com",
-        "senha": "$2a$10$flpgbdo5B.n/Aoi2SR89ZeWkSXT6W4Cob/cRKCi9xwyhbG8Xfg7xK",
-        "confirmarsenha": "$2a$10$IkER0wlZF6F7xA84T24yS.lzucb3GqHK9l5iYcmFpMrO9xWGlljK6",
-        "cpfcnpj": "12345678910",
-        "nome": "Teste",
-        "sobrenome": "Do Cadastro",
-        "birthday": "1981-06-17",
-        "phone": "11888888888",
-        "receberemail": "email",
-        "receberem": "sms/whatsapp",
-        "avatar": "6f02cf89-7c27-4bb0-976f-51a37dac72c0-1fc6dce1-4a68-48e1-a335-be4703df706e-avatar1.jpg"
-    }
-]
+[{"id":"c4c5ef98-4a8d-4666-8cbc-8d749649daa6","email":"teste@teste.com","senha":"$2a$10$flpgbdo5B.n/Aoi2SR89ZeWkSXT6W4Cob/cRKCi9xwyhbG8Xfg7xK","confirmarsenha":"$2a$10$IkER0wlZF6F7xA84T24yS.lzucb3GqHK9l5iYcmFpMrO9xWGlljK6","cpfcnpj":"12345678910","nome":"Teste","sobrenome":"Do Cadastro","birthday":"1981-06-17","phone":"11888888888","receberemail":"email","receberem":"sms/whatsapp","avatar":"6f02cf89-7c27-4bb0-976f-51a37dac72c0-1fc6dce1-4a68-48e1-a335-be4703df706e-avatar1.jpg"},{"id":"efbb5ec1-38b8-4ebd-925b-704f85efb1bd","email":"LUIZ.WANDRE@GMAIL.COM","senha":"$2a$10$X7KQ86SG9734/Yt0bBa8Mu2jQY9vrrDMqCxAhLrazmorFVYkFHXJC","confirmarsenha":"$2a$10$DXnkQ61LZzXnDF.loN9pReb7UpmMkhhZ0CIt8p8Axsx2O8rm4cwhu","cpfcnpj":"123456","nome":"Luiz","sobrenome":"Ramalho","birthday":"1991-02-17","phone":"11971139232","receberemail":"email","receberem":"sms/whatsapp","avatar":"894ddfe4-fb96-4535-8715-03bf02957ae1-IMG_20180429_203100009_BURST000_COVER_TOP.jpg"},{"id":"fce3bcb2-7d78-4290-a32d-4faec1e6c096","email":"LUIZ.WANDRE@GMAIL.COM","senha":"$2a$10$5xZ5dymlgZkOSgT/D0gFCulQgMkbXHWTT3.xY/mzh6dLXrCmXB1tW","confirmarsenha":"$2a$10$xgCFIko7ZPEDFuA/QPHPAuI9iQVGBqFBkGvJ9U8t6SSAXP.rKtbxG","cpfcnpj":"123456","nome":"Luiz","sobrenome":"Ramalho","birthday":"1991-02-17","phone":"11971139232","receberemail":"email","receberem":"sms/whatsapp","avatar":"28817dc5-a4d8-4386-9c0b-b6e08d02ac3d-IMG_20180429_203100009_BURST000_COVER_TOP.jpg"},{"id":"e8031ae9-03bc-43e9-9ea9-a61463dd48eb","email":"LUIZ.WANDRE@GMAIL.COM","senha":"$2a$10$.s8DYACYK0RNlLIMmxs.2O2Z.SJBNWR24zDs9HacZOTxIkMdXQuwm","confirmarsenha":"$2a$10$krmxK4UgRJajhHpzaeTHpu6Hfdm5hSFkPqWNIORqgKISvcemGql3O","cpfcnpj":"123456","nome":"Luiz","sobrenome":"Ramalho","birthday":"1991-02-17","phone":"11971139232","receberemail":"email","receberem":"sms/whatsapp","avatar":"473f4d08-ae00-4a50-be19-bc792f8cffee-IMG_20180429_203100009_BURST000_COVER_TOP.jpg"},{"id":"b350c08a-ac49-4788-9b32-c2adfdb2b4f7","email":"LUIZ.WANDRE@GMAIL.COM","senha":"$2a$10$aDpmk/L1126FRshsPdP41um4t.z4W106D182WVml014./nhgUaMzW","confirmarsenha":"$2a$10$XBMbnIgdSoDTijEMDV7sauh9mFuFgZvdkR9A0WlUgEUV2lOjVa1yi","cpfcnpj":"123456","nome":"Luiz","sobrenome":"Ramalho","birthday":"1991-02-17","phone":"11971139232","receberemail":"email","receberem":"sms/whatsapp","avatar":"c7241fd0-507f-46a7-8b41-807b81df04c8-IMG_20180429_203100009_BURST000_COVER_TOP.jpg"}]
