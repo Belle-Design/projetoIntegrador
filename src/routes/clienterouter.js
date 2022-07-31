@@ -6,7 +6,7 @@ const isAuthorized = require('../middlewares/isCadastroAuthorized');
 const storageFotoCliente = require('../middlewares/multerFotoCliente');
 
 const router = Router();
-const upload = multer({ storageFotoCliente });
+const upload = multer({ storage: storageFotoCliente });
 
 /* router.get('/' ,clientecontroller.cliente); */
 router.get('/', isAuthorized ,clientecontroller.acesso);

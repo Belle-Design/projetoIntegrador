@@ -7,47 +7,41 @@ const cadastroFilePath = path.join(__dirname, '..', 'data', 'cadastroDataBase.js
 const fotosFilePath = path.join(__dirname, '..', 'data', 'cadastroReforma.json');
 
 const clientecontroller = {
-    /* cliente: (request, response) => {
-        return response.redirect ('/login');
-    }, */
+    
     acesso: (request, response)=>{
         const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
-        const cadastroCliente = cadastro.map((cliente)=>{
-            return{
-                ...cliente
-            }
-        });
+        
+        const ISSERVER = typeof window === "undefined";
 
-        return response.render('areacliente', { cadastroCliente });
+        if (!ISSERVER) {
+            let clienteLogado = JSON.parse(localStorage.getItem("clienteLogado"));
+        };
+        
+
+        return response.render('areacliente', {nome: clienteLogado.nome, avatar: clienteLogado.avatar, id_cliente: clienteLogado.id});
     },
     reformaInfo: (request, response) => {
         
         const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
-        const cadastroCliente = cadastro.map((cliente)=>{
-            return{
-                ...cliente
-            }
-        });
+        const reforma = JSON.parse(fs.readFileSync(fotosFilePath, 'utf-8'));
+      
 
         const newReforma = {
             id: uuid(),
-            id_cliente: cadastro.id,
+            id_cliente: clienteLogado.id,
             ...request.body,
             fotos: request.files,
         };
-        const reforma = JSON.parse(fs.readFileSync(fotosFilePath, 'utf-8'));
 
         reforma.push(newReforma);
 
         fs.writeFileSync(fotosFilePath, JSON.stringify(reforma));
 
-      /*   dadosSalvos = {
-            nome: cadastro.nome,
-            avatar: cadastro.avatar,
-            id_cliente: cadastroFound.id
-        } */
+     
 
-        return response.render('areacliente', { cadastroCliente });
+        let clienteLogado = localStorage.getItem("clienteLogado");
+
+        return response.render('areacliente', {nome: clienteLogado.nome, avatar: clienteLogado.avatar, id_cliente: clienteLogado.id});
     }
 }
 

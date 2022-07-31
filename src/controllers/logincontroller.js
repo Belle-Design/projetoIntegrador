@@ -31,14 +31,18 @@ const logincontroller = {
         request.session.idCadastro = cadastroFound.id;
         request.session.isAuthorized = true;
 
-        response.render('areacliente',{nome: cadastroFound.nome, avatar: cadastroFound.avatar, id_cliente: cadastroFound.id});
+        const ISSERVER = typeof window === "undefined";
+
+if (!ISSERVER) {
+  localStorage.setItem("clienteLogado",JSON.stringify(cadastroFound));
+}
+
+        
+        /* response.render('areacliente',{nome: clienteLogado.nome, avatar: clienteLogado.avatar, id_cliente: clienteLogado.id}); */
+        response.redirect('/areacliente');
         
         
-        /* dadosSalvos = {
-            nome: cadastroFound.nome,
-            avatar: cadastroFound.avatar,
-            id_cliente: cadastroFound.id
-        } */
+      
     },
 }
 
