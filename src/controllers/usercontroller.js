@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const {v4: uuid} = require('uuid');
 const bcrypt = require('bcryptjs');
+const { validationResult } = require('express-validator');
 
 const cadastroFilePath = path.join(__dirname, '..', 'data', 'cadastroDataBase.json');
 const fotosFilePath = path.join(__dirname, '..', 'data', 'cadastroReforma.json');
@@ -14,6 +15,43 @@ const usercontroller = {
 
 
     saveCadastro:(request, response) => {
+
+        const resultValidations = validationResult(request);
+
+        if(resultValidations.errors.length > 0) {
+            return response.render('cadastro', {
+                   errors: resultValidations.mapped(),
+                oldData: request.body
+            });
+        }
+
+
+        
+        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
+        const usuarioFindByField = (field, value) => {
+            let usuarioEncontrado = cadastro.find(usuario => usuario[field] === value);
+            return usuarioEncontrado
+        };
+
+        let usuarioExistente = usuarioFindByField('email', request.body.email);
+
+        if(usuarioExistente) {
+            return response.render('cadastro'), {
+                errors: {
+                 email:{
+                    msg: 'Este email já está registrado'
+                 }   
+                },  
+                oldData: request.body
+            }
+        }
+
+
+        
+
+       
+
+
         const { senha , confirmarsenha} = request.body;
 
         const senhaHash = bcrypt.hashSync(senha);
@@ -36,7 +74,6 @@ const usercontroller = {
             confirmarsenha: confirmarsenhaHash
         };
 
-        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
 
         cadastro.push(newCadastro);
 
