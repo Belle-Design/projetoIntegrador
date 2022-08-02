@@ -5,12 +5,8 @@ const session = require('express-session');
 
 const indexrouter = require('../src/routes/indexrouter');
 const userrouter = require('../src/routes/userrouter');
-const loginrouter = require('../src/routes/loginrouter');
-const cadastrorouter = require('../src/routes/cadastrorouter');
-const clienterouter = require('../src/routes/clienterouter');
 const harmonizadarouter = require('../src/routes/harmonizadarouter');
 const itensrouter = require('../src/routes/itensrouter')
-
 const vantagensrouter = require('../src/routes/vantagensrouter');
 
 const app = express();
@@ -32,9 +28,6 @@ app.use(methodOverride('_method'));
 app.use('/', indexrouter);
 app.use('/index', indexrouter);
 app.use('/user', userrouter);
-/* app.use('/login', loginrouter);
-app.use('/cadastro', cadastrorouter);
-app.use('/areacliente', clienterouter); */
 app.use('/harmonizada', harmonizadarouter);
 app.use('/itens-detalhados', itensrouter);
 

@@ -19,19 +19,19 @@ const usercontroller = {
         const senhaHash = bcrypt.hashSync(senha);
         const confirmarsenhaHash = bcrypt.hashSync(confirmarsenha);
 
-        let fotoAvatar = request.file;
+        /*let fotoAvatar = request.file.filename;
         
         if (fotoAvatar !== undefined) {
-            return fotoAvatar = fotoAvatar.filename
+            return fotoAvatar = request.file.filename;
         }
         else {
             fotoAvatar = 'avatarDefault.png'
-        }
+        }*/
         
         const newCadastro = {
             id: uuid(),
             ...request.body,
-            avatar: fotoAvatar,
+            avatar: request.file.filename,
             senha: senhaHash,
             confirmarsenha: confirmarsenhaHash
         };
@@ -103,7 +103,7 @@ const usercontroller = {
 
         const newReforma = {
             id: uuid(),
-            /* id_cliente: request.session.userLogged.id, */
+            id_cliente: request.session.userLogged.id,
             ...request.body,
             fotos: request.files,
         };
