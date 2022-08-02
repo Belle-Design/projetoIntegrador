@@ -14,11 +14,20 @@ const cadastrocontroller = {
 
         const senhaHash = bcrypt.hashSync(senha);
         const confirmarsenhaHash = bcrypt.hashSync(confirmarsenha);
+
+        let fotoAvatar = request.file;
+        
+        if (fotoAvatar !== undefined) {
+            return fotoAvatar = fotoAvatar.filename
+        }
+        else {
+            fotoAvatar = 'avatarDefault.png'
+        }
         
         const newCadastro = {
             id: uuid(),
             ...request.body,
-            avatar: request.file.filename,
+            avatar: fotoAvatar,
             senha: senhaHash,
             confirmarsenha: confirmarsenhaHash
         };
@@ -29,8 +38,7 @@ const cadastrocontroller = {
 
         fs.writeFileSync(
             cadastroFilePath, 
-            JSON.stringify(cadastro)
-        );
+            JSON.stringify(cadastro));
            
         return response.redirect('/');
         
