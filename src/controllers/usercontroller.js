@@ -89,8 +89,6 @@ const usercontroller = {
     
     areacliente: (request, response)=>{
         const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));   
-        
-        
         return response.render('areacliente', {userLogged: request.session.userLogged});
     },
 
