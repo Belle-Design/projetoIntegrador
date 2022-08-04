@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const {v4: uuid} = require('uuid');
 const bcrypt = require('bcryptjs');
+const { validationResult } = require('express-validator');
 
 const cadastroFilePath = path.join(__dirname, '..', 'data', 'cadastroDataBase.json');
 const fotosFilePath = path.join(__dirname, '..', 'data', 'cadastroReforma.json');
@@ -14,29 +15,65 @@ const usercontroller = {
 
 
     saveCadastro:(request, response) => {
-        const { senha , confirmarsenha} = request.body;
+
+        const resultValidations = validationResult(request);
+
+        if(resultValidations.errors.length > 0) {
+            return response.render('cadastro', {
+                   errors: resultValidations.mapped(),
+                oldData: request.body
+            });
+        }
+
+
+        
+        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
+        const usuarioFindByField = (field, value) => {
+            let usuarioEncontrado = cadastro.find(usuario => usuario[field] === value);
+            return usuarioEncontrado
+        };
+
+        let usuarioExistente = usuarioFindByField('email', request.body.email);
+
+        if(usuarioExistente) {
+            return response.render('cadastro', {
+                errors: [
+                    {
+                    msg: 'Este email já está registrado'
+                 },   
+                ],  
+                oldData: request.body
+            });
+        }
+
+
+        
+
+       
+
+
+        const {senha , confirmarsenha} = request.body;
 
         const senhaHash = bcrypt.hashSync(senha);
         const confirmarsenhaHash = bcrypt.hashSync(confirmarsenha);
 
-        /*let fotoAvatar = request.file.filename;
-        
+       
+        let fotoAvatar = request.file
         if (fotoAvatar !== undefined) {
-            return fotoAvatar = request.file.filename;
+            fotoAvatar = fotoAvatar.filename
         }
         else {
             fotoAvatar = 'avatarDefault.png'
-        }*/
+        }
         
         const newCadastro = {
             id: uuid(),
             ...request.body,
-            avatar: request.file.filename,
+            avatar: fotoAvatar,
             senha: senhaHash,
             confirmarsenha: confirmarsenhaHash
         };
 
-        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
 
         cadastro.push(newCadastro);
 
@@ -97,11 +134,13 @@ const usercontroller = {
         
         const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
         const reforma = JSON.parse(fs.readFileSync(fotosFilePath, 'utf-8'));
-      
+        
+        const cadastroFound = cadastro.find((cadastro) => cadastro.email === request.body.email_usuario);
 
+        
         const newReforma = {
             id: uuid(),
-            id_cliente: request.session.userLogged.id,
+            id_cliente: cadastroFound.id,
             ...request.body,
             fotos: request.files,
         };
@@ -112,7 +151,7 @@ const usercontroller = {
         fs.writeFileSync(fotosFilePath, JSON.stringify(reforma, null, ''));
 
            
-        return response.render('areacliente', {userLogged: request.session.userLogged});
+        return response.render('areacliente', {userLogged: cadastroFound});
     },
 
     logout: (request, response) => {
