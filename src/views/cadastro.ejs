@@ -16,14 +16,8 @@
                     <div class="preview">
                         <img src="" alt="" id="file-preview">
                     </div>
+                    
                     <div class="file">
-                        <label for="avatar">Carregar Foto</label>
-                       
-                        <input type="file" id="avatar" name="avatar" accept="image/*" onchange="showPreview(event);">
-                    </div>
-                    
-                    
-
                     <script type="text/javascript">
                         function showPreview(event) {
                             if(event.target.files.length > 0){
@@ -36,6 +30,13 @@
                         }
 
                     </script>
+                        <label for="avatar">Carregar Foto</label>
+                       
+                        <input type="file" id="avatar" name="avatar" accept="image/*" onchange="showPreview(event);">
+                    </div>
+                    
+                    
+
 
                 
 

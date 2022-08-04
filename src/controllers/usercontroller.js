@@ -36,14 +36,14 @@ const usercontroller = {
         let usuarioExistente = usuarioFindByField('email', request.body.email);
 
         if(usuarioExistente) {
-            return response.render('cadastro'), {
-                errors: {
-                 email:{
+            return response.render('cadastro', {
+                errors: [
+                    {
                     msg: 'Este email já está registrado'
-                 }   
-                },  
+                 },   
+                ],  
                 oldData: request.body
-            }
+            });
         }
 
 
@@ -52,24 +52,24 @@ const usercontroller = {
        
 
 
-        const { senha , confirmarsenha} = request.body;
+        const {senha , confirmarsenha} = request.body;
 
         const senhaHash = bcrypt.hashSync(senha);
         const confirmarsenhaHash = bcrypt.hashSync(confirmarsenha);
 
-        /*let fotoAvatar = request.file.filename;
-        
+       
+        let fotoAvatar = request.file
         if (fotoAvatar !== undefined) {
-            return fotoAvatar = request.file.filename;
+            fotoAvatar = fotoAvatar.filename
         }
         else {
             fotoAvatar = 'avatarDefault.png'
-        }*/
+        }
         
         const newCadastro = {
             id: uuid(),
             ...request.body,
-            avatar: request.file.filename,
+            avatar: fotoAvatar,
             senha: senhaHash,
             confirmarsenha: confirmarsenhaHash
         };
@@ -136,11 +136,13 @@ const usercontroller = {
         
         const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
         const reforma = JSON.parse(fs.readFileSync(fotosFilePath, 'utf-8'));
-      
+        
+        const cadastroFound = cadastro.find((cadastro) => cadastro.email === request.body.email_usuario);
 
+        
         const newReforma = {
             id: uuid(),
-            id_cliente: request.session.userLogged.id,
+            id_cliente: cadastroFound.id,
             ...request.body,
             fotos: request.files,
         };
@@ -151,7 +153,7 @@ const usercontroller = {
         fs.writeFileSync(fotosFilePath, JSON.stringify(reforma, null, ''));
 
            
-        return response.render('areacliente', {userLogged: request.session.userLogged});
+        return response.render('areacliente', {userLogged: cadastroFound});
     },
 
     logout: (request, response) => {

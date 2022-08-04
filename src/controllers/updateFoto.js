@@ -1,4 +1,4 @@
-function showPreview(event) {
+/* function showPreview(event) {
 	if(event.target.files.length > 0){
 		var src = URL.createObjectURL(event.target.files[0]);
 		var preview = document.getElementById("file-preview");
@@ -6,4 +6,4 @@ function showPreview(event) {
 		preview.style.display = "block";
 	}
 
-}
+} */
