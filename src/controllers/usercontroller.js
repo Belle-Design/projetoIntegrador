@@ -10,7 +10,7 @@ const { clienteModel } = require('../database');
 
 const usercontroller = {
     
-    cadastro: (request, response) => {
+    cadastro: async (request, response) => {
         return response.render ('cadastro');
         },
 
@@ -19,6 +19,8 @@ const usercontroller = {
 
         const { nome, sobrenome, email, senha, confirmarsenha, telefone, dataNascimento, avatar, receberSMS, receberEmail } = request.body;
         
+        // const senhaHash = bcrypt.hashSync(senha);
+        // const confirmarsenhaHash = bcrypt.hashSync(confirmarsenha);
        
         let fotoAvatar = request.file
         if (fotoAvatar !== undefined) {
@@ -35,30 +37,30 @@ const usercontroller = {
     },
 
     
-    entrar: (request, response) => {
+    entrar: async (request, response) => {
         return response.render ('login');
     },
     
     
-    logar: (request, response)=>{
+    logar: async (request, response)=>{
         const { email, senha} = request.body;
 
-        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
+        const cadastro = await usuarioModel.findAll();
 
-        const cadastroFound = cadastro.find(cadastro => cadastro.email === email);
+        const cadastroFound = cadastro.find(cadastro => cadastro.email === email && cadastro.senha === senha);
 
         if(!cadastroFound){
             return response.status(401).render('login', {
                 error: 'Usuário ou senha incorretos'
             });
         }
-        const issenhaCorrect = bcrypt.compareSync(senha, cadastroFound.senha);
+        //const issenhaCorrect = bcrypt.compareSync(senha, cadastroFound.senha);
 
-        if (!issenhaCorrect) {
-            return response.status(401).render('login',{
-                error: 'Usuário ou senha incorretos'
-            });
-        }
+        // if (!issenhaCorrect) {
+        //     return response.status(401).render('login',{
+        //         error: 'Usuário ou senha incorretos'
+        //     });
+        // }
 
        
 
@@ -66,15 +68,12 @@ const usercontroller = {
         delete cadastroFound.confirmarsenha;
        
         request.session.userLogged = cadastroFound;
-        
-
-                
+               
         return response.redirect('/user/areacliente');  
     },
 
     
-    areacliente: (request, response)=>{
-        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));   
+    areacliente: async(request, response)=>{
         return response.render('areacliente', {userLogged: request.session.userLogged});
     },
 
