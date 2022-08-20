@@ -1,7 +1,7 @@
 const sequelize = require('./config/sequelize');
 
 const db = {
-  clienteModel: require('./models/clienteModel')(sequelize),
+  usuarioModel: require('./models/UsuarioModel')(sequelize),
 }
 
 Object.keys(db).forEach(modelName => {

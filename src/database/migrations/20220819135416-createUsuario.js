@@ -1,14 +1,19 @@
 'use strict';
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    
-    return queryInterface.createTable('clientes', {
+  async up (queryInterface, Sequelize) {
+    return queryInterface.createTable('usuarios', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
+      },
+      reformasId: {
+        type: Sequelize.INTEGER,
+      },
+      especialidadesId: {
+        type: Sequelize.INTEGER,
       },
       nome: {
         type: Sequelize.STRING,
@@ -19,40 +24,44 @@ module.exports = {
         allowNull: false,
       },
       email: {
-        allowNull: false,
         type: Sequelize.STRING,
+        allowNull: false,
       },
       senha: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      phone: {
+      confirmarsenha: {
+        type: Sequelize.STRING,
         allowNull: false,
-        type: Sequelize.INTEGER,
       },
-      avatar: {
+      telefone: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      receberSMS: {
-        type: Sequelize.TINYINT,
+      dataNascimento:{
         allowNull: false,
+        type:Sequelize.DATE,
+      },
+      avatar:{
+        type: Sequelize.STRING,
+      },
+      receberSMS: {
+        type:Sequelize.TINYINT,
       },
       receberEmail: {
-        type: Sequelize.TINYINT,
-        allowNull: false,
+        type:Sequelize.TINYINT,
       },
-      createdAt: {
+      criadoEm: {
         type: Sequelize.DATE,
       },
-      updatedAt: {
+      atualizadoEm: {
         type: Sequelize.DATE,
       },
     })
-
   },
 
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('clientes');
+  async down (queryInterface, Sequelize) {
+    return queryInterface.dropTable('usuarios');
   }
 };

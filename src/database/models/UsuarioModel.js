@@ -1,14 +1,20 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  const Cliente = sequelize.define(
-    "cliente",
+  const Usuario = sequelize.define(
+    "Usuario",
     {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
+      },
+      reformasId: {
+        type: DataTypes.INTEGER,
+      },
+      especialidadesId: {
+        type: DataTypes.INTEGER,
       },
       nome: {
         type: DataTypes.STRING,
@@ -26,37 +32,41 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      phone: {
+      confirmarsenha: {
+        type: DataTypes.STRING,
         allowNull: false,
-        type: DataTypes.INTEGER,
       },
-      avatar: {
+      telefone: {
         allowNull: false,
         type: DataTypes.STRING,
       },
-      receberSMS: {
-        type: DataTypes.TINYINT,
+      dataNascimento:{
+        type:DataTypes.DATE,
         allowNull: false,
+      },
+      avatar:{
+        type: DataTypes.STRING,
+      },
+      receberSMS: {
+        type:DataTypes.TINYINT,
       },
       receberEmail: {
-        type: DataTypes.TINYINT,
-        allowNull: false,
+        type:DataTypes.TINYINT,
       },
-      createdAt: {
+      criadoEm: {
         type: DataTypes.DATE,
       },
-      updatedAt: {
+      atualizadoEm: {
         type: DataTypes.DATE,
       },
       
     },
     {
-      tableName: "clientes",
+      tableName: "usuarios",
       timestamps: true,
-      createdAt: "createdAt",
-      updatedAt: "updatedAt",
-    }
-  );
+      createdAt: "criadoEm",
+      updatedAt: "atualizadoEm",
+    });
 
-  return Cliente;
+  return Usuario;
 };

@@ -3,9 +3,10 @@ const path = require('path');
 const {v4: uuid} = require('uuid');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
+const { usuarioModel } = require('../database');
+const { clienteModel } = require('../database');
 
-const cadastroFilePath = path.join(__dirname, '..', 'data', 'cadastroDataBase.json');
-const fotosFilePath = path.join(__dirname, '..', 'data', 'cadastroReforma.json');
+
 
 const usercontroller = {
     
@@ -14,49 +15,10 @@ const usercontroller = {
         },
 
 
-    saveCadastro:(request, response) => {
+    saveCadastro: async (request, response) => {
 
-        const resultValidations = validationResult(request);
-
-        if(resultValidations.errors.length > 0) {
-            return response.render('cadastro', {
-                   errors: resultValidations.mapped(),
-                oldData: request.body
-            });
-        }
-
-
+        const { nome, sobrenome, email, senha, confirmarsenha, telefone, dataNascimento, avatar, receberSMS, receberEmail } = request.body;
         
-        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
-        const usuarioFindByField = (field, value) => {
-            let usuarioEncontrado = cadastro.find(usuario => usuario[field] === value);
-            return usuarioEncontrado
-        };
-
-        let usuarioExistente = usuarioFindByField('email', request.body.email);
-
-        if(usuarioExistente) {
-            return response.render('cadastro', {
-                errors: [
-                    {
-                    msg: 'Este email já está registrado'
-                 },   
-                ],  
-                oldData: request.body
-            });
-        }
-
-
-        
-
-       
-
-
-        const {senha , confirmarsenha} = request.body;
-
-        const senhaHash = bcrypt.hashSync(senha);
-        const confirmarsenhaHash = bcrypt.hashSync(confirmarsenha);
-
        
         let fotoAvatar = request.file
         if (fotoAvatar !== undefined) {
@@ -65,23 +27,10 @@ const usercontroller = {
         else {
             fotoAvatar = 'avatarDefault.png'
         }
-        
-        const newCadastro = {
-            id: uuid(),
-            ...request.body,
-            avatar: fotoAvatar,
-            senha: senhaHash,
-            confirmarsenha: confirmarsenhaHash
-        };
 
+        await usuarioModel.create({ nome, sobrenome, email, senha, confirmarsenha, telefone, dataNascimento, avatar, receberSMS, receberEmail });
 
-        cadastro.push(newCadastro);
-
-        fs.writeFileSync(
-            cadastroFilePath, 
-            JSON.stringify(cadastro));
-           
-        return response.redirect('/user/login');
+        response.redirect("/user/login");
         
     },
 

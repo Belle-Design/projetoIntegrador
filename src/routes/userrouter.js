@@ -16,7 +16,7 @@ const validacoes = require('../middlewares/validateRegister');
 
 
 router.get('/cadastro', usercontroller.cadastro);
-router.post('/cadastro', upload.single('avatar'), validacoes,  usercontroller.saveCadastro);
+router.post('/cadastro', upload.single('avatar'), usercontroller.saveCadastro);
 
 router.get('/login', usercontroller.entrar);
 router.post('/login', usercontroller.logar);
