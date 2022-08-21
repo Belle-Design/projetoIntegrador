@@ -3,21 +3,24 @@ const path = require('path');
 const {v4: uuid} = require('uuid');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
-const { usuarioModel } = require('../database');
-const { clienteModel } = require('../database');
+const { usuarioModel, reformaModel, especialidadeModel } = require('../database');
+
 
 
 
 const usercontroller = {
     
     cadastro: async (request, response) => {
-        return response.render ('cadastro');
+
+        const especialidade = await especialidadeModel.findAll();
+
+        return response.render ('cadastro', {especialidade} );
         },
 
 
     saveCadastro: async (request, response) => {
 
-        const { nome, sobrenome, email, senha, confirmarsenha, telefone, dataNascimento, avatar, receberSMS, receberEmail } = request.body;
+        const { nome, sobrenome, email, senha, confirmarsenha, telefone, dataNascimento, avatar, especialidadesId, receberSMS, receberEmail } = request.body;
         
         // const senhaHash = bcrypt.hashSync(senha);
         // const confirmarsenhaHash = bcrypt.hashSync(confirmarsenha);
@@ -30,7 +33,7 @@ const usercontroller = {
             fotoAvatar = 'avatarDefault.png'
         }
 
-        await usuarioModel.create({ nome, sobrenome, email, senha, confirmarsenha, telefone, dataNascimento, avatar, receberSMS, receberEmail });
+        await usuarioModel.create({ nome, sobrenome, email, senha, confirmarsenha, telefone, dataNascimento, avatar, especialidadesId, receberSMS, receberEmail });
 
         response.redirect("/user/login");
         
@@ -78,27 +81,16 @@ const usercontroller = {
     },
 
 
-    reformaInfo: (request, response) => {
+    reformaInfo: async (request, response) => {
+
+        const { usuarioId, localReforma, comprimento, largura, altura, fotos, dataReuniao } = request.body;
         
-        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
-        const reforma = JSON.parse(fs.readFileSync(fotosFilePath, 'utf-8'));
+        const cadastro = await usuarioModel.findAll();
         
         const cadastroFound = cadastro.find((cadastro) => cadastro.email === request.body.email_usuario);
+    
+        await reformaModel.create({ usuarioId, localReforma, comprimento, largura, altura, fotos, dataReuniao });
 
-        
-        const newReforma = {
-            id: uuid(),
-            id_cliente: cadastroFound.id,
-            ...request.body,
-            fotos: request.files,
-        };
-        
-
-        reforma.push(newReforma);
-
-        fs.writeFileSync(fotosFilePath, JSON.stringify(reforma, null, ''));
-
-           
         return response.render('areacliente', {userLogged: cadastroFound});
     },
 

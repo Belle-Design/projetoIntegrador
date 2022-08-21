@@ -16,10 +16,6 @@ module.exports = (sequelize) => {
       localReforma: {
         type: DataTypes.STRING,
       },
-      nome: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
       comprimento: {
         type:DataTypes.INTEGER,
         allowNull: false,
@@ -52,7 +48,15 @@ module.exports = (sequelize) => {
       timestamps: true,
       createdAt: "criadoEm",
       updatedAt: "atualizadoEm",
+    }
+  );
+
+  Reforma.associate = (models) => {
+    Reforma.belongsTo(models.usuarioModel, {
+      as: 'usuarios',
+      foreignKey: 'usuariosId'
     });
+  }
 
   return Reforma;
 };

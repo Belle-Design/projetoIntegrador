@@ -9,9 +9,6 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      reformasId: {
-        type: Sequelize.INTEGER,
-      },
       especialidadesId: {
         type: Sequelize.INTEGER,
       },

@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 
+
 module.exports = (sequelize) => {
   const Usuario = sequelize.define(
     "Usuario",
@@ -9,9 +10,6 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
-      },
-      reformasId: {
-        type: DataTypes.INTEGER,
       },
       especialidadesId: {
         type: DataTypes.INTEGER,
@@ -66,7 +64,16 @@ module.exports = (sequelize) => {
       timestamps: true,
       createdAt: "criadoEm",
       updatedAt: "atualizadoEm",
+    }
+  );
+
+  Usuario.associate = (models) => {
+    
+    Usuario.belongsTo(models.especialidadeModel, {
+      as: 'especialidade',
+      foreignKey: 'especialidadesId'
     });
 
+  }
   return Usuario;
 };
