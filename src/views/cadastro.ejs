@@ -76,11 +76,12 @@
                         <label for="phone">Telefone</label>
                         <input type="tel" id="" name="telefone" placeholder="(11)999999999" pattern="([0-9]{2})[0-9]{9}" value="<%= locals.oldData ? oldData.phone : null %>" required>
                     </div>
-                    <div>
+                    <div class="input">
+                        <label for="especialidade">Cliente ou Arquiteto</label>
                         <select name="especialidadesId" required>
                             <option value="" disabled selected>- Selecione Especialidade - </option>
                             <% especialidade.forEach(especialidade=> { %>
-                              <option value="<%= especialidade.id %>">
+                              <option value="<%= especialidade.id%>">
                                 <%= especialidade.nome %>
                               </option>
                               <% }); %>

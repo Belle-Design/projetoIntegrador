@@ -64,8 +64,10 @@ module.exports = (sequelize) => {
       timestamps: true,
       createdAt: "criadoEm",
       updatedAt: "atualizadoEm",
-    }
+    },
+    
   );
+
 
   Usuario.associate = (models) => {
     
@@ -73,6 +75,11 @@ module.exports = (sequelize) => {
       as: 'especialidade',
       foreignKey: 'especialidadesId'
     });
+    Usuario.hasMany(models.reformaModel, {
+      as: 'reformas',
+      foreignKey: 'usuariosId'
+
+    })
 
   }
   return Usuario;

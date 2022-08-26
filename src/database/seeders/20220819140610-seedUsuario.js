@@ -5,7 +5,7 @@ module.exports = {
    return queryInterface.bulkInsert('usuarios',[
     {
       especialidadesId: 1,
-      nome:"Belle",
+      nome:"BelleDesign",
       sobrenome: "Design",
       email: "belle.design@email.com",
       senha: 1234,

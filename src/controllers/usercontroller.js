@@ -20,10 +20,15 @@ const usercontroller = {
 
     saveCadastro: async (request, response) => {
 
-        const { nome, sobrenome, email, senha, confirmarsenha, telefone, dataNascimento, avatar, especialidadesId, receberSMS, receberEmail } = request.body;
+
+        const { nome, sobrenome, senha, confirmarsenha, email, telefone, dataNascimento, avatar, especialidadesId, receberSMS, receberEmail } = request.body;
+
+        const senhaHash = await bcrypt.hash(senha, 8)
+        const confirmarsenhaHash = await bcrypt.hash(confirmarsenha, 8);
+
+        request.body.senha = senhaHash;
+        request.body.confirmarsenha = confirmarsenhaHash;       
         
-        // const senhaHash = bcrypt.hashSync(senha);
-        // const confirmarsenhaHash = bcrypt.hashSync(confirmarsenha);
        
         let fotoAvatar = request.file
         if (fotoAvatar !== undefined) {
@@ -83,13 +88,13 @@ const usercontroller = {
 
     reformaInfo: async (request, response) => {
 
-        const { usuarioId, localReforma, comprimento, largura, altura, fotos, dataReuniao } = request.body;
+        const {localReforma, comprimento, largura, altura, fotos, dataReuniao } = request.body;
         
         const cadastro = await usuarioModel.findAll();
         
         const cadastroFound = cadastro.find((cadastro) => cadastro.email === request.body.email_usuario);
     
-        await reformaModel.create({ usuarioId, localReforma, comprimento, largura, altura, fotos, dataReuniao });
+        await reformaModel.create({ localReforma, comprimento, largura, altura, fotos, dataReuniao });
 
         return response.render('areacliente', {userLogged: cadastroFound});
     },
