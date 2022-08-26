@@ -3,60 +3,32 @@ const path = require('path');
 const {v4: uuid} = require('uuid');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
+const { usuarioModel, reformaModel, especialidadeModel } = require('../database');
 
-const cadastroFilePath = path.join(__dirname, '..', 'data', 'cadastroDataBase.json');
-const fotosFilePath = path.join(__dirname, '..', 'data', 'cadastroReforma.json');
+
+
 
 const usercontroller = {
     
-    cadastro: (request, response) => {
-        return response.render ('cadastro');
+    cadastro: async (request, response) => {
+
+        const especialidade = await especialidadeModel.findAll();
+
+        return response.render ('cadastro', {especialidade} );
         },
 
 
-    saveCadastro:(request, response) => {
-
-        const resultValidations = validationResult(request);
-
-        if(resultValidations.errors.length > 0) {
-            return response.render('cadastro', {
-                   errors: resultValidations.mapped(),
-                oldData: request.body
-            });
-        }
+    saveCadastro: async (request, response) => {
 
 
+        const { nome, sobrenome, senha, confirmarsenha, email, telefone, dataNascimento, avatar, especialidadesId, receberSMS, receberEmail } = request.body;
+
+        const senhaHash = await bcrypt.hash(senha, 8)
+        const confirmarsenhaHash = await bcrypt.hash(confirmarsenha, 8);
+
+        request.body.senha = senhaHash;
+        request.body.confirmarsenha = confirmarsenhaHash;       
         
-        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
-        const usuarioFindByField = (field, value) => {
-            let usuarioEncontrado = cadastro.find(usuario => usuario[field] === value);
-            return usuarioEncontrado
-        };
-
-        let usuarioExistente = usuarioFindByField('email', request.body.email);
-
-        if(usuarioExistente) {
-            return response.render('cadastro', {
-                errors: [
-                    {
-                    msg: 'Este email já está registrado'
-                 },   
-                ],  
-                oldData: request.body
-            });
-        }
-
-
-        
-
-       
-
-
-        const {senha , confirmarsenha} = request.body;
-
-        const senhaHash = bcrypt.hashSync(senha);
-        const confirmarsenhaHash = bcrypt.hashSync(confirmarsenha);
-
        
         let fotoAvatar = request.file
         if (fotoAvatar !== undefined) {
@@ -65,51 +37,38 @@ const usercontroller = {
         else {
             fotoAvatar = 'avatarDefault.png'
         }
-        
-        const newCadastro = {
-            id: uuid(),
-            ...request.body,
-            avatar: fotoAvatar,
-            senha: senhaHash,
-            confirmarsenha: confirmarsenhaHash
-        };
 
+        await usuarioModel.create({ nome, sobrenome, email, senha, confirmarsenha, telefone, dataNascimento, avatar, especialidadesId, receberSMS, receberEmail });
 
-        cadastro.push(newCadastro);
-
-        fs.writeFileSync(
-            cadastroFilePath, 
-            JSON.stringify(cadastro));
-           
-        return response.redirect('/user/login');
+        response.redirect("/user/login");
         
     },
 
     
-    entrar: (request, response) => {
+    entrar: async (request, response) => {
         return response.render ('login');
     },
     
     
-    logar: (request, response)=>{
+    logar: async (request, response)=>{
         const { email, senha} = request.body;
 
-        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
+        const cadastro = await usuarioModel.findAll();
 
-        const cadastroFound = cadastro.find(cadastro => cadastro.email === email);
+        const cadastroFound = cadastro.find(cadastro => cadastro.email === email && cadastro.senha === senha);
 
         if(!cadastroFound){
             return response.status(401).render('login', {
                 error: 'Usuário ou senha incorretos'
             });
         }
-        const issenhaCorrect = bcrypt.compareSync(senha, cadastroFound.senha);
+        //const issenhaCorrect = bcrypt.compareSync(senha, cadastroFound.senha);
 
-        if (!issenhaCorrect) {
-            return response.status(401).render('login',{
-                error: 'Usuário ou senha incorretos'
-            });
-        }
+        // if (!issenhaCorrect) {
+        //     return response.status(401).render('login',{
+        //         error: 'Usuário ou senha incorretos'
+        //     });
+        // }
 
        
 
@@ -117,40 +76,26 @@ const usercontroller = {
         delete cadastroFound.confirmarsenha;
        
         request.session.userLogged = cadastroFound;
-        
-
-                
+               
         return response.redirect('/user/areacliente');  
     },
 
     
-    areacliente: (request, response)=>{
-        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));   
+    areacliente: async(request, response)=>{
         return response.render('areacliente', {userLogged: request.session.userLogged});
     },
 
 
-    reformaInfo: (request, response) => {
+    reformaInfo: async (request, response) => {
+
+        const {localReforma, comprimento, largura, altura, fotos, dataReuniao } = request.body;
         
-        const cadastro = JSON.parse(fs.readFileSync(cadastroFilePath, 'utf-8'));
-        const reforma = JSON.parse(fs.readFileSync(fotosFilePath, 'utf-8'));
+        const cadastro = await usuarioModel.findAll();
         
         const cadastroFound = cadastro.find((cadastro) => cadastro.email === request.body.email_usuario);
+    
+        await reformaModel.create({ localReforma, comprimento, largura, altura, fotos, dataReuniao });
 
-        
-        const newReforma = {
-            id: uuid(),
-            id_cliente: cadastroFound.id,
-            ...request.body,
-            fotos: request.files,
-        };
-        
-
-        reforma.push(newReforma);
-
-        fs.writeFileSync(fotosFilePath, JSON.stringify(reforma, null, ''));
-
-           
         return response.render('areacliente', {userLogged: cadastroFound});
     },
 
