@@ -27,9 +27,6 @@ module.exports = {
         type:Sequelize.INTEGER,
         allowNull: false,
       },
-      fotos:{
-        type: Sequelize.STRING,
-      },
       dataReuniao:{
         type:Sequelize.DATE,
         allowNull: false,

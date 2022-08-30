@@ -58,6 +58,7 @@ module.exports = (sequelize) => {
         type: DataTypes.DATE,
       },
       
+      
     },
     {
       tableName: "usuarios",
