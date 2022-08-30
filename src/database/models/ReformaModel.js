@@ -28,9 +28,6 @@ module.exports = (sequelize) => {
         type:DataTypes.INTEGER,
         allowNull: false,
       },
-      fotos:{
-        type: DataTypes.STRING,
-      },
       dataReuniao:{
         type:DataTypes.DATE,
         allowNull: false,
@@ -56,6 +53,12 @@ module.exports = (sequelize) => {
       as: 'usuarios',
       foreignKey: 'usuariosId'
     });
+
+    Reforma.hasMany(models.fotoReformaModel, {
+      as: 'fotosReformas',
+      foreignKey: 'reformasId'
+
+    })
   }
 
   return Reforma;

@@ -4,6 +4,8 @@ const db = {
   usuarioModel: require('./models/UsuarioModel')(sequelize),
   reformaModel: require('./models/ReformaModel')(sequelize),
   especialidadeModel: require('./models/EspecialidadeModel')(sequelize),
+  fotoReformaModel: require('./models/FotoReformaModel')(sequelize),
+
 }
 
 Object.keys(db).forEach(modelName => {

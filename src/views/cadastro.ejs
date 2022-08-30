@@ -32,7 +32,7 @@
                     </script>
                         <label for="avatar">Carregar Foto</label>
                        
-                        <input type="file" id="avatar" name="avatar" accept="image/*" onchange="showPreview(event);">
+                        <input type="file" id="avatar" name="avatar" accept="image/*" onchange="showPreview(event)">
                     </div>
                     
                     
@@ -74,7 +74,7 @@
 
                     <div class="input">
                         <label for="phone">Telefone</label>
-                        <input type="tel" id="" name="telefone" placeholder="(11)999999999" pattern="([0-9]{2})[0-9]{9}" value="<%= locals.oldData ? oldData.phone : null %>" required>
+                        <input type="tel" id="" name="telefone" placeholder="11 999999999" pattern="([0-9]{2})[0-9]{9}" value="<%= locals.oldData ? oldData.phone : null %>" required>
                     </div>
                     <div class="input">
                         <label for="especialidade">Cliente ou Arquiteto</label>
@@ -89,12 +89,12 @@
                     </div>
                     <div class="input">
                         <div>
-                            <input type="checkbox" name="receberEmail" id="receberEmail" value="email">
+                            <input type="checkbox" name="receberEmail" id="receberEmail" value="1">
                             <label for="receberinformacoes-email">Quero receber promoções e informações por
                                 email</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="receberSMS" id="receberSMS" value="sms/whatsapp">
+                            <input type="checkbox" name="receberSMS" id="receberSMS" value="1">
                             <label for="receberinformacoes-sms">Quero receber promoçoes e informações por
                                 sms/whatsapp</label>
                         </div>
