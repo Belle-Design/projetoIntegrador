@@ -17,18 +17,12 @@ const usercontroller = {
     saveCadastro: async (request, response) => {
 
 
-        const { nome, sobrenome, senha, confirmarsenha, email, telefone, dataNascimento, avatar, especialidadesId, receberSMS, receberEmail } = request.body;
+        const { nome, sobrenome, senha, confirmarsenha, email, telefone, dataNascimento, especialidadesId, receberSMS, receberEmail } = request.body;
 
         const senhaHash = await bcrypt.hash(senha, 8)
         
-        let fotoAvatar = request.file
-        if (fotoAvatar !== undefined) {
-            fotoAvatar = fotoAvatar.filename
-        }
-        else {
-            fotoAvatar = 'avatarDefault.png'
-        }
-
+        const fotoAvatar = request.file?.filename || 'avatarDefault.png'
+       
         await usuarioModel.create({ nome, sobrenome, email, senha:senhaHash, confirmarsenha, telefone, dataNascimento, avatar:fotoAvatar, especialidadesId, receberSMS, receberEmail });
 
         response.redirect("/user/login");
@@ -84,19 +78,24 @@ const usercontroller = {
 
         const usuariosId = request.session.userLogged.id;
         
-        const reformasId = request.session.userLogged.id;
 
-        const {localReforma, comprimento, largura, fotos ,altura, dataReuniao } = request.body;
+        const {localReforma, comprimento, largura ,altura, dataReuniao } = request.body;
         
-        await reformaModel.create({ usuariosId, localReforma, comprimento, largura, altura, dataReuniao });
+        const reforma = await reformaModel.create({ usuariosId, localReforma, comprimento, largura, altura, dataReuniao });
         
-        await fotoReformaModel.create({reformasId, fotos});
+        console.log(reforma, request.files);
+        await Promise.all(request.files.map((file)=>{
+            
+            return fotoReformaModel.create({reformasId:reforma.id, fotos:file.filename});
+        }))
+
         
         const cadastroFound = await usuarioModel.findOne({
             where:{
                 email: request.body.email_usuario
             }
         });
+
 
         return response.render('areacliente', {userLogged: cadastroFound});
 
