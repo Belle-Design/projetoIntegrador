@@ -12,7 +12,6 @@
     "generate:seeder": "npx sequelize-cli seed:generate --name",
     "execute:seeder": "npx sequelize-cli db:seed:all",
     "undo:seeder": "npx sequelize-cli db:seed:undo"
-
   },
   "repository": {
     "type": "git",
@@ -38,7 +37,7 @@
     "multer": "^1.4.5-lts.1",
     "mysql2": "^2.3.3",
     "path": "^0.12.7",
-    "sequelize": "^6.21.3",
+    "sequelize": "^6.21.6",
     "session": "^0.1.0",
     "uuid": "^8.3.2",
     "uuidv4": "^6.2.13"

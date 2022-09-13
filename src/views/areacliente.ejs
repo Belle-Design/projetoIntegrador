@@ -1,215 +1,53 @@
-<%- include('./partials/header') %>
+<<%- include('./partials/header') %>
 <body>
 
     <%- include('./partials/headerNavBarCliente') %>
 
-    <link rel="stylesheet" href="/css/areadocliente.css">
-
+    <link rel="stylesheet" href="/css/areacliente.css">
+    <link rel="stylesheet" href="/css/style.css">
     <main>
 
-        <section id="informacaocliente">
-
-            <form class="formareadocliente" action="/user/areacliente" method="post" enctype="multipart/form-data">
-                <h1>Informações sobre o ambiente a ser reformado/decorado</h1>
-
-                <fieldset class="fieldset">
-                    <legend>LOCAL DA REFORMA/DECORAÇÃO</legend>
-                    <div>
-                        <fieldset>
-                            <legend>Área Interna</legend>
-                            <ul>
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="cozinha" value="cozinha">
-                                    <label for="cozinha">Cozinha</label>
-                                </li>
-
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="saladejantar" value="sala_de_jantar">
-                                    <label for="saladejantar">Sala de Jantar</label>
-                                </li>
-
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="saladeestar" value="sala_de_estar">
-                                    <label for="saladeestar">Sala de Estar</label>
-                                </li>
-
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="banheiro" value="banheiro">
-                                    <label for="banheiro">Banheiro</label>
-                                </li>
-
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="quarto" value="quarto">
-                                    <label for="quarto">Quarto</label>
-                                </li>
-
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="suite" value="suite">
-                                    <label for="suite">Suíte</label>
-                                </li>
-
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="lavabo" value="lavabo">
-                                    <label for="lavabo">Lavabo</label>
-                                </li>
-
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="escritorio" value="escritorio">
-                                    <label for="escritorio">Escritório</label>
-                                </li>
-
-                            </ul>
-
-
-                        </fieldset>
-
-                        <fieldset>
-                            <legend>Área Externa</legend>
-                            <ul>
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="piscina" value="piscina">
-                                    <label for="piscina">Piscina</label>
-                                </li>
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="churrasqueira" value="churrasqueira">
-                                    <label for="churrasqueira">Churrasqueira</label>
-                                </li>
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="garagem" value="garagem">
-                                    <label for="garagem">Garagem</label>
-                                </li>
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="jardim" value="jardim">
-                                    <label for="jardim">Jardim</label>
-                                </li>
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="fachada" value="fachada">
-                                    <label for="fachada">Fachada</label>
-                                </li>
-
-                            </ul>
-
-                        </fieldset>
-
-                        <fieldset>
-                            <legend>Corporativo</legend>
-
-                            <ul>
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="saladereuniao" value="sala_de_reuniao">
-                                    <label for="saladereuniao">Sala de Reuniões</label>
-                                </li>
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="auditorio" value="auditorio">
-                                    <label for="auditorio">Auditório</label>
-                                </li>
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="descompressão" value="descompressão">
-                                    <label for="descompressão">Área de Descompressão</label>
-                                </li>
-
-                                <li>
-
-                                    <input type="radio" name="localReforma" id="refeitorio" value="refeitorio">
-                                    <label for="refeitorio">Refeitório</label>
-                                </li>
-
-                                <li>
-
-                                    <input type="radio" name="localReformaa" id="fachada" value="fachada">
-                                    <label for="fachada">Fachada</label>
-                                </li>
-
-                            </ul>
-
-                        </fieldset>
-
-                    </div>
-                </fieldset>
-
-
-                </fieldset>
-
-                <fieldset class="fieldset">
-                    <legend>MEDIDAS DO LOCAL</legend>
-
-                    <div class="input-group">
-                        <label for="comprimento">COMPRIMENTO</label>
-                        <input type="text" id="comprimento" name="comprimento">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="largura">LARGURA</label>
-                        <input type="text" id="largura" name="largura">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="altura">ALTURA (PÉ-DIREITO)</label>
-                        <input type="text" id="altura" name="altura">
-                    </div>
-
-                </fieldset>
-
-                <fieldset class="fieldset">
-                    <legend>FOTOS DO LOCAL</legend>
-
-                    <div class="input-group">
-                        <label for="fotos">ANEXE TODAS AS FOTOS QUE TIVER DO LOCAL (Diferentes angulos de visão são
-                            muito bem vindos!)</label>
-                        <input type="file" id="fotos" name="fotos" multiple>
-                    </div>
-                </fieldset>
-
-                <fieldset class="fieldset">
-                    <legend>AGENDE UM HORÁRIO COM SEU ARQUITETO</legend>
-                    <p></p>
-                    <div class="input-group">
-                        <label for="datetime1">Dia e horário</label>
-                        <input type="datetime-local" name="dataReuniao" id="datetime1" value="datetime1">
-                    </div>
-                </fieldset>
-
-                <input hidden name="email_usuario" value="<%= userLogged.email %>" />
-                <input hidden name="id_usuario" value="<%= userLogged.id %>" />
-    
-                <button type="submit">Enviar</button>
-
-            </form>
-
+        <section id="servicos">
+            <h2>Bella Design</h2>
+            <section id="carrocel-projetos">
+                <div class="container-projetos">
+                <div class="card-projetos">
+                    <img src="/img/foto-projeto-sala.jpg" alt="" >
+                    <img src="/img/foto-projeto-quarto.jpg" alt="" >
+                    <img src="/img/foto-projeto-cozinha.jpg" alt="" >
+                    <img src="/img/foto-projeto-banheiro.jpg" alt="" >
+                    <img src="/img/foto-projeto-sala.jpg" alt="" >
+                                                     
+                </div>
+                </div>
+            </section>
         </section>
-
+                    
+        <div class="body">
+            <section id="section1">
+                <div class="mainsection1">
+                    <div>
+                        <h1>Meus Projetos</h1>
+                    </div>
+                    <div class="pictures">
+                        <div>
+                            <img src="img/foto-projeto-novo.jpg" alt="">
+                            
+                            <a class="link-projeto" href="/novoProjeto">Novo Projeto</a>
+                        </div>
+                        <div>
+                            <img src="img/foto-projeto-andamento.jpg" alt="">
+                            
+                            <a class="link-projeto" href="/novoProjeto">Projetos em andamento</a>
+                        </div>
+                        <div>
+                            <img src="img/foto-projeto-finalizado.jpg" alt="">
+                            
+                            <a class="link-projeto" href="/novoProjeto">Projetos Finalizados</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
     </main>
 </body>
 <%- include('./partials/footer') %>

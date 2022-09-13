@@ -21,8 +21,8 @@ router.post('/cadastro', upload.single('avatar'), usercontroller.saveCadastro);
 router.get('/login', usercontroller.entrar);
 router.post('/login', usercontroller.logar);
 
-router.get('/areacliente', isAuthorized, validacoes ,usercontroller.areacliente);
-router.post('/areacliente', uploadFotoReforma.array('fotos'), usercontroller.reformaInfo);
+router.get('/novoProjeto', isAuthorized, validacoes ,usercontroller.areacliente);
+router.post('/novoProjeto', uploadFotoReforma.array('fotos'), usercontroller.reformaInfo);
 
 module.exports = router;
 
