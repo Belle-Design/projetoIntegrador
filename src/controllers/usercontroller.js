@@ -66,11 +66,15 @@ const usercontroller = {
                
         return response.redirect('/user/areacliente');  
     },
-
-    
     areacliente: async(request, response)=>{
     
         return response.render('areacliente', {userLogged: request.session.userLogged});
+    },
+
+    
+    novoprojeto: async(request, response)=>{
+    
+        return response.render('novoProjeto', {userLogged: request.session.userLogged});
     },
 
 

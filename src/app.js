@@ -7,7 +7,8 @@ const indexrouter = require('../src/routes/indexrouter');
 const userrouter = require('../src/routes/userrouter');
 const harmonizadarouter = require('../src/routes/harmonizadarouter');
 const itensrouter = require('../src/routes/itensrouter')
-const vantagensrouter = require('../src/routes/vantagensrouter');
+const vantagensrouter = require('../src/routes/vantagensrouter')
+
 
 const app = express();
 
