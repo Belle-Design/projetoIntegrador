@@ -22,10 +22,9 @@ router.get('/login', usercontroller.entrar);
 router.post('/login', usercontroller.logar);
 
 
-router.get('/areacliente', usercontroller.areacliente);
-//router.post('/novoProjeto', uploadFotoReforma.array('fotos'), usercontroller.reformaInfo);
+router.get('/areacliente', isAuthorized, usercontroller.areacliente);
 router.get('/novoProjeto', isAuthorized, validacoes , usercontroller.novoprojeto);
-router.post('/novoProjeto', uploadFotoReforma.array('fotos'), usercontroller.reformaInfo);
+router.post('/areacliente', uploadFotoReforma.array('fotos'), usercontroller.reformaInfo);
 
 module.exports = router;
 
