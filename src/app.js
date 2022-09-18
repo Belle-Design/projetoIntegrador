@@ -7,8 +7,8 @@ const indexrouter = require('../src/routes/indexrouter');
 const userrouter = require('../src/routes/userrouter');
 const harmonizadarouter = require('../src/routes/harmonizadarouter');
 const itensrouter = require('../src/routes/itensrouter')
-const vantagensrouter = require('../src/routes/vantagensrouter')
-
+const vantagensrouter = require('../src/routes/vantagensrouter');
+const novoprojetorouter = require('../src/routes/novoprojetorouter');
 
 const app = express();
 
@@ -31,7 +31,7 @@ app.use('/index', indexrouter);
 app.use('/user', userrouter);
 app.use('/harmonizada', harmonizadarouter);
 app.use('/itens-detalhados', itensrouter);
-
+app.use('/novoProjeto', novoprojetorouter);
 
 app.use('/vantagens', vantagensrouter);
 

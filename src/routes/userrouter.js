@@ -21,10 +21,12 @@ router.post('/cadastro', upload.single('avatar'), usercontroller.saveCadastro);
 router.get('/login', usercontroller.entrar);
 router.post('/login', usercontroller.logar);
 
+
 router.get('/areacliente', usercontroller.areacliente);
 //router.post('/novoProjeto', uploadFotoReforma.array('fotos'), usercontroller.reformaInfo);
 router.get('/novoProjeto', isAuthorized, validacoes , usercontroller.novoprojeto);
 router.post('/novoProjeto', uploadFotoReforma.array('fotos'), usercontroller.reformaInfo);
+
 module.exports = router;
 
 
