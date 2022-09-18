@@ -1,0 +1,75 @@
+@keyframes animacao-carrocel {
+    0% { margin-left: 0;}
+    20% {margin-left: 0;}
+    25% { margin-left: -100%;}
+    45% {margin-left: -100%;}
+    50% {margin-left: -200%;}
+    70% {margin-left: -200%;}
+    75% {margin-left: -300%;}
+    95% {margin-left: -300%;}
+    100% {margin-left: -400%;}
+}
+.container-projetos {
+    width: 780px;
+    height: 420px;
+    overflow: hidden;
+}
+.container-projetos .card-projetos {
+   width: 500%;
+   animation-name: animacao-carrocel;
+   animation-duration: 10s;
+   animation-iteration-count: infinite;
+}
+section#servicos .card-projetos {
+  
+    /*overflow: hidden;*/
+    position: relative;
+    object-fit: cover;
+}
+#carrocel-projetos {
+    display: flex;
+   justify-content: center;
+}
+.card-projetos img {
+    width: 19.9%;
+    object-fit: cover;
+}
+
+.link-projeto:hover {
+    background-color: var(--cor-bg-header);
+    color: var(--cor-bg-body);
+  }
+
+  .mainsection1 .link-projeto {
+    display: block;
+    font-weight: bold;
+    width: 270px;
+    height: 70px;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color, background-color, box-shadow, border-color;
+    color: rgb(0, 0, 0);
+    background-color: rgb(242, 247, 247);
+    border-color: black;
+    padding: 7px 16px;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease-out;
+    text-align: center;
+  }
+  .mainsection1 .text {
+    width: 270px;
+    height: 70px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+  #servicos h2{
+    font-size: 44px;
+  }
