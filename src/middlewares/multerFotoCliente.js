@@ -21,3 +21,4 @@ const storageFotoCliente = multer.diskStorage({
 
 
 module.exports = storageFotoCliente;
+
