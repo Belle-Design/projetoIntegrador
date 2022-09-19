@@ -8,6 +8,7 @@ const userrouter = require('../src/routes/userrouter');
 const harmonizadarouter = require('../src/routes/harmonizadarouter');
 const itensrouter = require('../src/routes/itensrouter')
 const vantagensrouter = require('../src/routes/vantagensrouter');
+const ceprouter = require('../src/routes/ceprouter');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use('/index', indexrouter);
 app.use('/user', userrouter);
 app.use('/harmonizada', harmonizadarouter);
 app.use('/itens-detalhados', itensrouter);
+app.use('/cep', ceprouter);
 
 
 app.use('/vantagens', vantagensrouter);
