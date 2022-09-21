@@ -5,6 +5,7 @@
 
     <%- include('./partials/headerNavBar') %>
     <link rel="stylesheet" href="/css/cadastro.css">
+    <!-- <script type="text/javascript" src="/public/js/updateFoto.js"> </script> -->
 
     <main>
 
@@ -18,7 +19,7 @@
                     </div>
                     
                     <div class="file">
-                    <script type="text/javascript">
+                    <script type="text/javascript" > 
                         function showPreview(event) {
                             if(event.target.files.length > 0){
                                 var src = URL.createObjectURL(event.target.files[0]);
@@ -30,6 +31,7 @@
                         }
 
                     </script>
+
                         <label for="avatar">Carregar Foto</label>
                        
                         <input type="file" id="avatar" name="avatar" accept="image/*" onchange="showPreview(event)">
