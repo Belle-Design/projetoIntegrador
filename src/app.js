@@ -35,8 +35,6 @@ app.use('/novoProjeto', novoprojetorouter);
 
 app.use('/vantagens', vantagensrouter);
 
-
-
 app.listen(3500, () => {
     console.log('Belle-Design rodando na porta 3500')
 })

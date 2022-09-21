@@ -12,9 +12,7 @@ const storage = multer.diskStorage({
         const fileName = `${uuid()}-${file.originalname}`;
 
         callback(null, fileName);
-
     }
 })
-
 
 module.exports = storage;

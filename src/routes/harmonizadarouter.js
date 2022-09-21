@@ -5,5 +5,4 @@ const router = Router();
 
 router.get('/', harmonizadacontroller.index);
 
-
 module.exports = router;
