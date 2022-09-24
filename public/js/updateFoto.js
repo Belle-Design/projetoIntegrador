@@ -1,9 +1,10 @@
-function showPreview(event) {
-	if(event.target.files.length > 0){
-		var src = URL.createObjectURL(event.target.files[0]);
-		var preview = document.getElementById("file-preview");
-		preview.src = src;
-		preview.style.display = "block";
-	}
+window.addEventListener("load", function () {
+  const upload = document.getElementById("avatar");
+  const img = document.getElementById("file-preview");
 
-}
+  upload.addEventListener("change", function () {
+    var src = URL.createObjectURL(upload.files[0]);
+    img.src = src;
+    img.style.display = "block";
+  });
+});
