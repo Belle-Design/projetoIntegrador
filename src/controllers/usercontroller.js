@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const { usuarioModel, reformaModel, especialidadeModel, fotoReformaModel } = require('../database');
 const ReformaModel = require('../database/models/ReformaModel');
+const { Op } = require("sequelize");
+
 
 const usercontroller = {
     
@@ -69,6 +71,57 @@ const usercontroller = {
     areacliente: async(request, response)=>{
     
         return response.render('areacliente', {userLogged: request.session.userLogged});
+    },
+    projetos: async(request, response)=>{
+        
+        // const especialidade = await especialidadeModel.findAll();
+        // return response.render ('cadastro', {especialidade} )
+
+        let projeto = await reformaModel.findAll(
+            {
+                raw: true,
+                //Other parameters
+                where: {
+                    usuariosId: request.session.userLogged.id
+                },
+                attributes: ['id', 'usuariosId', 'localReforma', 'comprimento', 'largura', 'altura'],
+            }
+          );
+
+
+        //   SELECT * FROM usuarios 
+        //   INNER JOIN reformas  ON usuarios.id  = reformas.usuariosId 
+        //   INNER JOIN fotosreformas ON reformas.id = fotosreformas.reformasId 
+        //   where usuariosId = 2
+        // console.log(projeto)
+        // let numeros = [... projeto.forEach(element => {
+        //     element.id
+        // })]
+        let testeNum = []
+        for(let i = 0; i < projeto.length; i++){
+            testeNum.push(projeto[i].id)
+        }
+
+
+        const fotos =   await fotoReformaModel.findAll({
+            raw: true,
+            where: {
+                reformasId: {
+                  [Op.or]: testeNum
+                }
+            },
+            attributes: ['fotos'],
+    }) ;
+        for(j = 0; j < projeto.length; j++) {
+            projeto[j]['foto'] = fotos[j].fotos
+        }
+
+        console.log(testeNum)
+        console.log(fotos)
+        console.log(projeto)
+
+        return response.render('projetos', {userLogged: request.session.userLogged,
+        projeto, fotos});
     },
 
     
