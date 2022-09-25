@@ -124,6 +124,35 @@ const usercontroller = {
         projeto, fotos});
     },
 
+    projetoShow: async(request, response)=>{
+        const id = request.params.id;
+        console.log(id)
+        const dados = await reformaModel.findOne({
+            raw: true,
+            //Other parameters
+            where: {
+                id: id
+            },
+                attributes: ['id', 'usuariosId', 'localReforma', 'comprimento', 'largura', 'altura', 'dataReuniao'],
+        })
+        console.log(dados)
+
+        const fotos =   await fotoReformaModel.findAll({
+            raw: true,
+            where: {
+                reformasId: id
+            },
+            attributes: ['fotos'],
+        })
+
+        const item = dados.localReforma.split('_').join("")
+        let data = dados.dataReuniao.toJSON().toString().slice(0,16)
+        console.log(data)
+
+        return response.render('edicaoProjeto', {userLogged: request.session.userLogged,
+        dados, fotos, item, data});
+    },
+
     
     novoprojeto: async(request, response)=>{
     

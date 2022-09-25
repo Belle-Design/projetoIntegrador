@@ -26,6 +26,7 @@ router.get('/areacliente', isAuthorized, usercontroller.areacliente);
 router.get('/novoProjeto', isAuthorized, validacoes , usercontroller.novoprojeto);
 router.post('/areacliente', uploadFotoReforma.array('fotos'), usercontroller.reformaInfo);
 router.get('/projetos', isAuthorized, usercontroller.projetos);
+router.get('/projetos/:id', isAuthorized, usercontroller.projetoShow);
 
 
 module.exports = router;
