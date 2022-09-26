@@ -5,5 +5,4 @@ const router = Router();
 
 router.get('/', vantagenscontroller.index);
 
-
 module.exports = router;
