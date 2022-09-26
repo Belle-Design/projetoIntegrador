@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Belle-Design/projetoIntegrador#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
@@ -43,6 +44,7 @@
     "uuidv4": "^6.2.13"
   },
   "devDependencies": {
-    "nodemon": "^2.0.18"
+    "nodemon": "^2.0.18",
+    "sequelize-cli": "^6.4.1"
   }
 }
