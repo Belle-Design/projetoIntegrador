@@ -67,6 +67,7 @@ const usercontroller = {
       });
     }
 
+
     delete cadastroFound.senha;
     delete cadastroFound.confirmarsenha;
 
@@ -80,10 +81,9 @@ const usercontroller = {
     );
   },
   projetos: async(request, response)=>{
-        let projeto = await reformaModel.findAll(
+        const projeto = await reformaModel.findAll(
             {
                 raw: true,
-                //Other parameters
                 where: {
                     usuariosId: request.session.userLogged.id
                 },
@@ -91,12 +91,12 @@ const usercontroller = {
             }
           );
           
-        let testeNum = []
+        const testeNum = []
         for(let i = 0; i < projeto.length; i++){
             testeNum.push(projeto[i].id)
         }
 
-        const fotos =   await fotoReformaModel.findAll({
+        const fotos =  await fotoReformaModel.findAll({
             raw: true,
             where: {
                 reformasId: {
@@ -104,7 +104,7 @@ const usercontroller = {
                 }
             },
             attributes: ['fotos'],
-    }) ;
+    });
         for(j = 0; j < projeto.length; j++) {
             projeto[j]['foto'] = fotos[j].fotos
         }
@@ -112,10 +112,9 @@ const usercontroller = {
         return response.render('projetos', {userLogged: request.session.userLogged,
         projeto, fotos});
     },
-
     projetoShow: async(request, response)=>{
         const id = request.params.id;
-        console.log(id)
+
         const dados = await reformaModel.findOne({
             raw: true,
             where: {
@@ -123,8 +122,8 @@ const usercontroller = {
             },
                 attributes: ['id', 'usuariosId', 'localReforma', 'comprimento', 'largura', 'altura', 'dataReuniao'],
         })
-
-        const fotos =   await fotoReformaModel.findAll({
+      
+        const fotos = await fotoReformaModel.findAll({
             raw: true,
             where: {
                 reformasId: id
@@ -134,7 +133,6 @@ const usercontroller = {
 
         const item = dados.localReforma.split('_').join("")
         let data = dados.dataReuniao.toJSON().toString().slice(0,16)
-        console.log(data)
 
         return response.render('edicaoProjeto', {userLogged: request.session.userLogged,
         dados, fotos, item, data});
@@ -151,7 +149,7 @@ const usercontroller = {
     const reforma = await reformaModel.create(
       { usuariosId, localReforma, comprimento, largura, altura, dataReuniao });
 
-    await Promise.all(request.files.map((file) => 
+    await Promise.all(request.files.map((file) =>
       fotoReformaModel.create({ reformasId: reforma.id, fotos: file.filename })
     ))
 

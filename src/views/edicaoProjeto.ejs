@@ -16,7 +16,7 @@
                 <section id="informacaocliente">
 
 
-                    <form class="formareadocliente" action="/user/areacliente" method="post"
+                    <form class="formareadocliente" action="/user/areacliente" method="get"
                         enctype="multipart/form-data">
                         <h1>Informações sobre o ambiente a ser reformado/decorado</h1>
 
@@ -219,7 +219,6 @@
                                 <script type="text/javascript">
                                     document.querySelector('input[type="file"]').addEventListener('change', (event) => {
                                             const lista = event.target.files;
-                                            console.log(lista)
                                             for(i=0; i<lista.length; i++){
                                                 let src = URL.createObjectURL(event.target.files[i])
                                                 const positionSelect = document.querySelector('.preview');
