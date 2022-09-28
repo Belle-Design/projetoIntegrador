@@ -81,61 +81,34 @@ const usercontroller = {
     );
   },
   projetos: async(request, response)=>{
-        const projeto = await reformaModel.findAll(
+        const projetos = await reformaModel.findAll(
             {
-                raw: true,
                 where: {
                     usuariosId: request.session.userLogged.id
                 },
-                attributes: ['id', 'usuariosId', 'localReforma', 'comprimento', 'largura', 'altura'],
+                attributes: ['id', 'usuariosId', 'localReforma', 'comprimento', 'largura', 'altura'], 
+                include: ['fotosReformas']
             }
           );
-          
-        const testeNum = []
-        for(let i = 0; i < projeto.length; i++){
-            testeNum.push(projeto[i].id)
-        }
-
-        const fotos =  await fotoReformaModel.findAll({
-            raw: true,
-            where: {
-                reformasId: {
-                  [Op.or]: testeNum
-                }
-            },
-            attributes: ['fotos'],
-    });
-        for(j = 0; j < projeto.length; j++) {
-            projeto[j]['foto'] = fotos[j].fotos
-        }
-
+      
         return response.render('projetos', {userLogged: request.session.userLogged,
-        projeto, fotos});
+        projetos});
     },
     projetoShow: async(request, response)=>{
         const id = request.params.id;
-
         const dados = await reformaModel.findOne({
-            raw: true,
             where: {
                 id: id
             },
                 attributes: ['id', 'usuariosId', 'localReforma', 'comprimento', 'largura', 'altura', 'dataReuniao'],
+                include: ['fotosReformas']
         })
       
-        const fotos = await fotoReformaModel.findAll({
-            raw: true,
-            where: {
-                reformasId: id
-            },
-            attributes: ['fotos'],
-        })
-
         const item = dados.localReforma.split('_').join("")
-        let data = dados.dataReuniao.toJSON().toString().slice(0,16)
+        let data = dados.dataReuniao.toString().slice(0,16)
 
         return response.render('edicaoProjeto', {userLogged: request.session.userLogged,
-        dados, fotos, item, data});
+        dados, fotos:dados.fotosReformas, item, data});
     },
   novoprojeto: async (request, response) => {
     return response.render(

@@ -9,11 +9,11 @@
             <main>
                 <h1>Meus projetos em andamento</h1>
                 <section class="mainsection">
-                    <% projeto.forEach(item=> { %>
+                    <% projetos.forEach(item=> { %>
                         <div>
                             <div class="projeto">
                                 <a href="/user/projetos/<%= item.id%>">
-                                    <img class="imagem-projeto" src="/img/fotos-clientes/<%= item.foto %>"
+                                    <img class="imagem-projeto" src="/img/fotos-clientes/<%= item.fotosReformas[0].fotos %>"
                                         alt="imagem projeto">
                                     <p class="local-reforma capitalized" href="/user/novoProjeto">
                                         <%= item.localReforma.split('_').join(" ") %> 
