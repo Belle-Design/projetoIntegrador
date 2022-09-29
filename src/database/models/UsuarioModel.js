@@ -34,6 +34,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      cpf: {
+        type : DataTypes.STRING,
+        allowNull: false,
+      },
       telefone: {
         allowNull: false,
         type: DataTypes.STRING,

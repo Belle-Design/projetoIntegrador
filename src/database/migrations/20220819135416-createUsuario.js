@@ -32,6 +32,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      cpf: {
+        type : Sequelize.STRING,
+        allowNull: false,
+      },
       telefone: {
         allowNull: false,
         type: Sequelize.STRING,

@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const { usuarioModel, reformaModel, especialidadeModel, fotoReformaModel } = require('../database');
 const { Op } = require("sequelize");
+const { response, request } = require('express');
 const usercontroller = {
   cadastro: async (request, response) => {
     const especialidade = await especialidadeModel.findAll();
@@ -13,6 +14,7 @@ const usercontroller = {
       sobrenome,
       senha,
       confirmarsenha,
+      cpf,
       email,
       telefone,
       dataNascimento,
@@ -31,6 +33,7 @@ const usercontroller = {
       email,
       senha: senhaHash,
       confirmarsenha,
+      cpf,
       telefone,
       dataNascimento,
       avatar: fotoAvatar,
@@ -40,6 +43,65 @@ const usercontroller = {
     });
 
     response.redirect("/user/login");
+  },
+  updateShow: async (request, response)=>{
+    const { id } = request.params;
+    const editCadastro = await usuarioModel.findByPk(id);
+    const especialidade = await especialidadeModel.findAll();
+
+    response.render('cadastroUpdate', {
+      editCadastro, especialidade
+    });
+  },
+  update:(request, response)=>{
+    const { nome,
+      sobrenome,
+      email,
+      senha: senhaHash,
+      confirmarsenha,
+      cpf,
+      telefone,
+      dataNascimento,
+      avatar: fotoAvatar,
+      especialidadesId,
+      receberSMS,
+      receberEmail } = request.body;
+    const { id } = request.params;
+
+    usuarioModel.update(
+    {
+      nome,
+      sobrenome,
+      email,
+      senha: senhaHash,
+      confirmarsenha,
+      cpf,
+      telefone,
+      dataNascimento,
+      avatar: fotoAvatar,
+      especialidadesId,
+      receberSMS,
+      receberEmail
+    },
+    {where: {id}}
+    );
+    response.redirect('/user/areacliente');
+  },
+  deleteShow: async (request, response)=>{
+    const { id } =  request.params;
+    const deleteUser = await usuarioModel.findByPk(id);
+
+    response.render('cadastroDelete',{deleteUser})
+  },
+  delete: async (request, response)=>{
+    const { id } = request.params;
+
+    await usuarioModel.destroy({where: {id}, force: true});
+    await reformaModel.destroy({where: {id}, force: true});
+    await fotoReformaModel.destroy({where: {id}, force: true});
+
+
+    response.redirect('/index');
   },
   entrar: async (request, response) => {
     return response.render('login');
