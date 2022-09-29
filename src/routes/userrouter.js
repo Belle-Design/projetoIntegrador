@@ -21,6 +21,10 @@ router.get('/novoProjeto', isAuthorized, validacoes , usercontroller.novoprojeto
 router.post('/areacliente', uploadFotoReforma.array('fotos'), usercontroller.reformaInfo);
 router.get('/projetos', isAuthorized, usercontroller.projetos);
 router.get('/projetos/:id', isAuthorized, usercontroller.projetoShow);
+router.get('/cadastro/:id', usercontroller.updateShow);
+router.put('/cadastro/:id', usercontroller.update);
+router.get('/delete/:id', usercontroller.deleteShow);
+router.delete('/delete/:id', usercontroller.delete);
 
 
 module.exports = router;

@@ -12,7 +12,7 @@
 }
 #section2 {
   height: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 h1 {
@@ -125,4 +125,83 @@ select {
   height: 30px;
   width: 600px;
   font-size: 15px;
+}
+a.deleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 200px;
+  height: 44px;
+  background: #ff0202;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  border: none;
+  margin-top: 30px;
+  margin-left: 200px;
+
+  cursor: pointer;
+  transition: all 600ms;
+  padding: 20px;
+ 
+}
+a.deleteButton:hover {
+  text-decoration: underline;
+  transition: all 0.3s ease-in;
+  background-color: white;
+  color: black;
+}
+
+.botaoDeletar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 200px;
+  height: 44px;
+  background: #ff0202;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  border: none;
+  margin-top: 30px;
+  margin-left: 200px;
+
+  cursor: pointer;
+  transition: all 600ms;
+  padding: 20px;
+ 
+}
+.botaoDeletarn:hover {
+  text-decoration: underline;
+  transition: all 0.3s ease-in;
+  background-color: white;
+  color: black;
+}
+.voltar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 200px;
+  height: 44px;
+  background: #161616;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  border: none;
+  margin-top: 30px;
+  margin-left: 200px;
+
+  cursor: pointer;
+  transition: all 600ms;
+  padding: 20px;
+ 
+}
+.voltar:hover {
+  text-decoration: underline;
+  transition: all 0.3s ease-in;
+  background-color: white;
+  color: black;
 }
