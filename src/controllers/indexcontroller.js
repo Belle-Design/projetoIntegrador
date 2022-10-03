@@ -1,6 +1,6 @@
 const indexcontroller = {
     index: (request, response) => {
-        response.render ('index');
+        response.render ('index.ejs');
     }
 }
 

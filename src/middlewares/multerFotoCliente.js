@@ -1,9 +1,6 @@
-const { request } = require('express');
 const multer = require('multer');
 const path = require('path');
 const {v4: uuid} = require('uuid');
-
-
 
 const storageFotoCliente = multer.diskStorage({
     destination: (request, file, callback)=>{
@@ -15,10 +12,8 @@ const storageFotoCliente = multer.diskStorage({
         const fileName = `${uuid()}-${file.originalname}`;
 
         callback(null, fileName);
-
     }
 })
-
 
 module.exports = storageFotoCliente;
 

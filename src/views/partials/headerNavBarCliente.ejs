@@ -5,7 +5,9 @@
         <ul>
             <li><a href="/index">HOME</a></li>
             <li>Olá <%= userLogged.nome %></li>
-            <li><img src= "/img/avatar/<%= userLogged.avatar %>"  alt="imagem do avatar do cliente"></li>               
+            <li><a href="/user/cadastro/<%= userLogged.id %>">Perfil?</a></li>
+            <li><img src= "/img/avatar/<%= userLogged.avatar %>"  alt="imagem do avatar do cliente"></li>
+                       
         </ul>
     </nav>
 </header>

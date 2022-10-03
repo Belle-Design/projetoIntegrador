@@ -1,5 +1,5 @@
 const isAuthorized = (request, response, next) => {
-    if (typeof(request.session.userLogged) != "undefined" ) {
+    if (typeof(request.session.userLogged) != "undefined") {
         return next();
     }
 

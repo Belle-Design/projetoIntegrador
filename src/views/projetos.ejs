@@ -1,0 +1,29 @@
+<<%- include('./partials/header') %>
+
+    <body>
+
+        <%- include('./partials/headerNavBarCliente') %>
+
+            <link rel="stylesheet" href="/css/projetos.css">
+            <link rel="stylesheet" href="/css/style.css">
+            <main>
+                <h1>Meus projetos em andamento</h1>
+                <section class="mainsection">
+                    <% projetos.forEach(item=> { %>
+                        <div>
+                            <div class="projeto">
+                                <a href="/user/projetos/<%= item.id%>">
+                                    <img class="imagem-projeto" src="/img/fotos-clientes/<%= item.fotosReformas[0].fotos %>"
+                                        alt="imagem projeto">
+                                    <p class="local-reforma capitalized" href="/user/novoProjeto">
+                                        <%= item.localReforma.split('_').join(" ") %> 
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <% }) %>
+
+            </section>
+    </main>
+</body>
+<%- include('./partials/footer') %>

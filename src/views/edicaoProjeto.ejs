@@ -1,0 +1,260 @@
+<%- include('./partials/header') %>
+
+    <body>
+
+        <%- include('./partials/headerNavBarCliente') %>
+
+            <link rel="stylesheet" href="/css/edicaoProjeto.css">
+            <script defer src="../js/domEdicaoProjeto.js"></script>
+            <script defer src="/src/js/domEdicaoProjeto.js"></script>
+
+
+
+
+            <main>
+
+                <section id="informacaocliente">
+
+
+                    <form class="formareadocliente" action="/user/areacliente" method="get"
+                        enctype="multipart/form-data">
+                        <h1>Informações sobre o ambiente a ser reformado/decorado</h1>
+
+
+                        <fieldset class="fieldset">
+                            <legend>LOCAL DA REFORMA/DECORAÇÃO</legend>
+                            <div>
+                                <fieldset>
+                                    <legend>Área Interna</legend>
+                                    <ul>
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="cozinha" value="cozinha">
+                                            <label for="cozinha">Cozinha</label>
+                                        </li>
+
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="saladejantar"
+                                                value="sala_de_jantar">
+                                            <label for="saladejantar">Sala de Jantar</label>
+                                        </li>
+
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="saladeestar"
+                                                value="sala_de_estar">
+                                            <label for="saladeestar">Sala de Estar</label>
+                                        </li>
+
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="banheiro" value="banheiro">
+                                            <label for="banheiro">Banheiro</label>
+                                        </li>
+
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="quarto" value="quarto">
+                                            <label for="quarto">Quarto</label>
+                                        </li>
+
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="suite" value="suite">
+                                            <label for="suite">Suíte</label>
+                                        </li>
+
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="lavabo" value="lavabo">
+                                            <label for="lavabo">Lavabo</label>
+                                        </li>
+
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="escritorio" value="escritorio">
+                                            <label for="escritorio">Escritório</label>
+                                        </li>
+
+                                    </ul>
+
+
+                                </fieldset>
+
+                                <fieldset>
+                                    <legend>Área Externa</legend>
+                                    <ul>
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="piscina" value="piscina">
+                                            <label for="piscina">Piscina</label>
+                                        </li>
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="churrasqueira"
+                                                value="churrasqueira">
+                                            <label for="churrasqueira">Churrasqueira</label>
+                                        </li>
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="garagem" value="garagem">
+                                            <label for="garagem">Garagem</label>
+                                        </li>
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="jardim" value="jardim">
+                                            <label for="jardim">Jardim</label>
+                                        </li>
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="fachada" value="fachada">
+                                            <label for="fachada">Fachada</label>
+                                        </li>
+
+                                    </ul>
+
+                                </fieldset>
+
+                                <fieldset>
+                                    <legend>Corporativo</legend>
+
+                                    <ul>
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="saladereuniao"
+                                                value="sala_de_reuniao">
+                                            <label for="saladereuniao">Sala de Reuniões</label>
+                                        </li>
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="auditorio" value="auditorio">
+                                            <label for="auditorio">Auditório</label>
+                                        </li>
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="descompressão"
+                                                value="descompressão">
+                                            <label for="descompressão">Área de Descompressão</label>
+                                        </li>
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="refeitorio" value="refeitorio">
+                                            <label for="refeitorio">Refeitório</label>
+                                        </li>
+
+                                        <li>
+
+                                            <input type="radio" name="localReforma" id="fachada" value="fachada">
+                                            <label for="fachada">Fachada</label>
+                                        </li>
+
+                                    </ul>
+
+                                </fieldset>
+
+                            </div>
+                        </fieldset>
+
+
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend>MEDIDAS DO LOCAL</legend>
+
+                            <div class="input-group">
+                                <label for="comprimento">COMPRIMENTO</label>
+                                <input type="text" id="comprimento" name="comprimento" value="<%= dados.comprimento%>">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="largura">LARGURA</label>
+                                <input type="text" id="largura" name="largura" value="<%= dados.largura%>">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="altura">ALTURA (PÉ-DIREITO)</label>
+                                <input type="text" id="altura" name="altura" value="<%= dados.altura%>">
+                            </div>
+
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend>FOTOS DO LOCAL</legend>
+
+                            <div class="input-group">
+                                <label for="fotos">ANEXE TODAS AS FOTOS QUE TIVER DO LOCAL (Diferentes angulos de visão
+                                    são
+                                    muito bem vindos!)</label>
+                                <input type="file" id="fotos" name="fotos" multiple value="<%= fotos.fotos%>">
+                                <div class="fotos-carregadas">
+                                    <div class="preview">
+                                        
+                                    </div>
+                                    <% fotos.forEach(imagem=> { %>
+                                        <div class="fotos-container">
+                                            <img src="/img/fotos-clientes/<%= imagem.fotos %>" alt="">
+                                            <button class="deletar-fotos">Deletar</button>
+                                        </div>
+                                        <% }) %>
+
+                                </div>
+                                <script type="text/javascript">
+                                    document.querySelector('input[type="file"]').addEventListener('change', (event) => {
+                                            const lista = event.target.files;
+                                            for(i=0; i<lista.length; i++){
+                                                let src = URL.createObjectURL(event.target.files[i])
+                                                const positionSelect = document.querySelector('.preview');
+                                                let html = '<img class="foto-preview" src="/img/foto-projeto-andamento.jpg" alt="">';
+                                                document.querySelector('.preview').insertAdjacentHTML("afterend", html)
+                                                document.querySelector('.foto-preview').src = `${src}`
+                                            }
+                                        })           
+                                </script>
+
+
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend>AGENDE UM HORÁRIO COM SEU ARQUITETO</legend>
+                            <p></p>
+                            <div class="input-group">
+                                <label for="datetime1">Dia e horário</label>
+                                <input type="datetime-local" name="dataReuniao" id="datetime1"
+                                    value="<%=data%>">
+                            </div>
+                        </fieldset>
+
+                        <input hidden name="email_usuario" value="<%= data%>" />
+                        <input hidden name="id_usuario"  />
+                        <div class="buttons-container">
+                            <button class="editar"  type="submit"> Editar </button>
+                            <button class="deletar" type="submit">Deletar</button>
+                        </div>
+                    </form>
+                </section>
+                <script>
+                    document.querySelector('label[for="<%= item %>"]').classList.add('checked');
+                    document.querySelector('#<%= item %>').checked = true        
+                </script>
+            </main>
+    </body>
+    <%- include('./partials/footer') %>
