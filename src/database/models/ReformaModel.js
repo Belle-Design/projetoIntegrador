@@ -29,7 +29,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       cep: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: true,
       },
       rua: {

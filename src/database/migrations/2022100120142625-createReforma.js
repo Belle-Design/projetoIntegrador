@@ -4,62 +4,62 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     return queryInterface.createTable("reformas", {
       id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
       usuariosId: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
       },
       localReforma: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       comprimento: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       largura: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       altura: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       cep: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.STRING,
         allowNull: true,
       },
       rua: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: true,
       },
       complemento: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: true,
       },
       bairro: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: true,
       },
       cidade: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: true,
       },
       uf: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: true,
       },
       dataReuniao: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         allowNull: false,
       },
       criadoEm: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
       atualizadoEm: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
     });
   },
