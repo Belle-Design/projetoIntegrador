@@ -4,7 +4,12 @@
     <%- include('./partials/headerNavBarCliente') %>
 
     <link rel="stylesheet" href="/css/areadocliente.css">
-    
+    <script src="/js/searchCep.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="/js/masks.js"></script>
 
     <main>
 
@@ -193,6 +198,32 @@
                     </div>
                 </fieldset>
 
+                <fieldset class="fieldset address">
+                    <legend>ENDEREÇO DA REFORMA</legend>
+
+                    <div class="input-group">
+                        <label for="cep">Cep (somente numeros)</label>
+                        <input type="text" id="cep" name="cep" placeholder="00000-000" >
+                        <div class="buscaCep">
+                            <button class="btn-cep">Buscar endereço</button>
+                        </div>
+                        <label for="rua">Rua</label>
+                        <input type="text" id="rua" name="rua" placeholder="Rua das reformas" >
+                        <label for="complemento">Complemento</label>
+                        <input type="text" id="complemento" name="complemento" placeholder="unidade 001">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" name="bairro" placeholder="Meu bairro" >
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Minha cidade" >
+                        <label for="uf">UF</label>
+                        <input type="text" id="uf" name="uf" placeholder="Meu estado" >
+                     
+                        
+                    </div>
+
+                
+                </fieldset>
+
                 <fieldset class="fieldset">
                     <legend>AGENDE UM HORÁRIO COM SEU ARQUITETO</legend>
                     <p></p>
@@ -211,6 +242,6 @@
 
         </section>
 
-    </main>
+    </main>  
 </body>
 <%- include('./partials/footer') %>

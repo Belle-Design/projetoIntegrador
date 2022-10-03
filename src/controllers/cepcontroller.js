@@ -7,7 +7,7 @@ const cepController = {
     try {
       const { data: endereco } = await cepApi.get(`/cep/v2/${codigo}`);
 
-      response.json(endereco);
+      console.log(endereco);
     } catch (error) {
       console.log(error);
     }

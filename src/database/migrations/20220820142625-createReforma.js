@@ -1,46 +1,70 @@
-'use strict';
+"use strict";
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    return queryInterface.createTable('reformas', {
+  async up(queryInterface, Sequelize) {
+    return queryInterface.createTable("reformas", {
       id: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
       usuariosId: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
       },
       localReforma: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
       },
       comprimento: {
-        type:Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       largura: {
-        type:Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       altura: {
-        type:Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
-      dataReuniao:{
-        type:Sequelize.DATE,
+      cep: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
+      rua: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      complemento: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      bairro: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      cidade: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      uf: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      dataReuniao: {
+        type: DataTypes.DATE,
         allowNull: false,
       },
       criadoEm: {
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
       },
       atualizadoEm: {
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
       },
-    })
+    });
   },
 
-  async down (queryInterface, Sequelize) {
-    return queryInterface.dropTable('reformas');
-  }
+  async down(queryInterface, Sequelize) {
+    return queryInterface.dropTable("reformas");
+  },
 };
