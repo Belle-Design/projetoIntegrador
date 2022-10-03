@@ -2,56 +2,58 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    return queryInterface.createTable("usuarios", {
+    return queryInterface.createTable("reformas", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
-      especialidadesId: {
+      usuariosId: {
         type: Sequelize.INTEGER,
       },
-      nome: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      sobrenome: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      senha: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      confirmarsenha: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      cpf: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      telefone: {
-        allowNull: false,
+      localReforma: {
         type: Sequelize.STRING,
       },
-      dataNascimento: {
+      comprimento: {
+        type: Sequelize.INTEGER,
         allowNull: false,
+      },
+      largura: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      altura: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      cep: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      rua: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      complemento: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      bairro: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      cidade: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      uf: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      dataReuniao: {
         type: Sequelize.DATE,
-      },
-      avatar: {
-        type: Sequelize.STRING,
-      },
-      receberSMS: {
-        type: Sequelize.TINYINT,
-      },
-      receberEmail: {
-        type: Sequelize.TINYINT,
+        allowNull: false,
       },
       criadoEm: {
         type: Sequelize.DATE,
@@ -63,6 +65,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    return queryInterface.dropTable("usuarios");
+    return queryInterface.dropTable("reformas");
   },
 };
