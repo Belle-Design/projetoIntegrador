@@ -58,23 +58,26 @@ const usercontroller = {
       editCadastro,
       especialidade,
     });
+    
   },
   update: (request, response) => {
     const {
       nome,
       sobrenome,
       email,
-      senha: senhaHash,
+      senhaHash,
       confirmarsenha,
       cpf,
       telefone,
       dataNascimento,
-      avatar: fotoAvatar,
+      fotoAvatar,
       especialidadesId,
       receberSMS,
       receberEmail,
     } = request.body;
     const { id } = request.params;
+
+    
 
     usuarioModel.update(
       {
@@ -103,10 +106,12 @@ const usercontroller = {
   },
   delete: async (request, response) => {
     const { id } = request.params;
+    const usuariosId = id;
+    const reformasId = id;
 
     await usuarioModel.destroy({ where: { id }, force: true });
-    await reformaModel.destroy({ where: { id }, force: true });
-    await fotoReformaModel.destroy({ where: { id }, force: true });
+    await reformaModel.destroy({ where: { usuariosId }, force: true });
+    await fotoReformaModel.destroy({ where: { reformasId }, force: true });
 
     response.redirect("/index");
   },
