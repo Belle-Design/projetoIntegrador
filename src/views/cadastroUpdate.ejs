@@ -15,7 +15,7 @@
           <h1>Criar Conta</h1>
 
           <div class="preview">
-            <img src="" alt="" id="file-preview" />
+            <img src="/img/avatar/<%= editCadastro.avatar %>" alt="" id="file-preview" />
           </div>
 
           <div class="file">
@@ -127,6 +127,7 @@
           <div class="input">
             <div>
               <input
+                checked="<%= editCadastro.receberEmail %>"
                 type="checkbox"
                 name="receberEmail"
                 id="receberEmail"
@@ -138,6 +139,7 @@
             </div>
             <div>
               <input
+                checked="<%= editCadastro.receberSMS %>"
                 type="checkbox"
                 name="receberSMS"
                 id="receberSMS"

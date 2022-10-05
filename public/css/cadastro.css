@@ -118,7 +118,7 @@ main form button:hover {
 .preview img {
   max-width: 200px;
   margin-bottom: 30px;
-  display: none;
+  display: block;
 }
 select {
   margin-bottom: 20px;

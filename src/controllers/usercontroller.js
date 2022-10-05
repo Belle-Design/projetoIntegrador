@@ -77,8 +77,6 @@ const usercontroller = {
     } = request.body;
     const { id } = request.params;
 
-    
-
     usuarioModel.update(
       {
         nome,
