@@ -77,7 +77,7 @@ module.exports = (sequelize) => {
   Usuario.associate = (models) => {
     
     Usuario.belongsTo(models.especialidadeModel, {
-      as: 'especialidade',
+      as: 'especialidades',
       foreignKey: 'especialidadesId'
     });
     Usuario.hasMany(models.reformaModel, {

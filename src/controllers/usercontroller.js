@@ -5,8 +5,8 @@ const {
   especialidadeModel,
   fotoReformaModel,
 } = require("../database");
-const { Op } = require("sequelize");
-const { response, request } = require("express");
+const {format} = require('date-fns');
+
 const usercontroller = {
   cadastro: async (request, response) => {
     const especialidade = await especialidadeModel.findAll();
@@ -52,10 +52,15 @@ const usercontroller = {
   updateShow: async (request, response) => {
     const { id } = request.params;
     const editCadastro = await usuarioModel.findByPk(id);
+
+    const selectDataNascimento = format(new Date(editCadastro.dataNascimento), 'yyyy-MM-dd');
+
+    console.log(selectDataNascimento);
+
     const especialidade = await especialidadeModel.findAll();
 
     response.render("cadastroUpdate", {
-      editCadastro,
+      editCadastro: {...editCadastro.toJSON(), dataNascimento:selectDataNascimento },
       especialidade,
     });
     
