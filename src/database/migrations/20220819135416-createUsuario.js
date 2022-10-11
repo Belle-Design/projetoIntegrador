@@ -1,7 +1,5 @@
 "use strict";
 
-const { zhCN } = require("date-fns/locale");
-
 module.exports = {
   async up(queryInterface, Sequelize) {
     return queryInterface.createTable("usuarios", {
@@ -11,12 +9,11 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      especialidades_id: {
+      especialidadesId: {
         type: Sequelize.DataTypes.INTEGER,
         references:{
           model:{
             tableName: 'especialidades',
-            schema: 'schema',
           },
           key: 'id',
         },

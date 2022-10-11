@@ -10,7 +10,13 @@ module.exports = {
         allowNull: false,
       },
       reformasId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DataTypes.INTEGER,
+        references:{
+          model:{
+            tableName: 'reformas',
+          },
+          key: 'id',
+        },
       },
       fotos:{
         type: Sequelize.STRING,

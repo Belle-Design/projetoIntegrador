@@ -10,7 +10,13 @@ module.exports = {
         allowNull: false,
       },
       usuariosId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DataTypes.INTEGER,
+        references:{
+          model:{
+            tableName: 'usuarios',
+          },
+          key: 'id',
+        },
       },
       localReforma: {
         type: Sequelize.STRING,

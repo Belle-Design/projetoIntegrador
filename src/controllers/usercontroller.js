@@ -55,8 +55,6 @@ const usercontroller = {
 
     const selectDataNascimento = format(new Date(editCadastro.dataNascimento), 'yyyy-MM-dd');
 
-    console.log(selectDataNascimento);
-
     const especialidade = await especialidadeModel.findAll();
 
     response.render("cadastroUpdate", {
