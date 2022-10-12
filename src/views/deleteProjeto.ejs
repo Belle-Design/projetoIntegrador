@@ -1,0 +1,25 @@
+<%- include('./partials/header') %>
+
+<body>
+  <%- include('./partials/headerNavBar') %>
+  <link rel="stylesheet" href="/css/cadastro.css" />
+  <script defer type="module" src="/js/updateFoto.js"></script>
+
+  <main>
+    <section id="section2">
+      <div class="body">
+        <form
+          action="/user/projetos/<%= deleteProjeto.id %>?_method=DELETE"
+          method="post">
+
+          <h1>Olá  <%= deleteProjeto.nome %>  Tem Certeza que deseja Deletar o seu Projeto?</h1>
+          <br>
+    <p> <button class="botaoDeletar" type="submit">Deletar o Projeto</button>
+
+      <a class="voltar" href="/user/areacliente">Voltar</a>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+<%- include('./partials/footer') %>
