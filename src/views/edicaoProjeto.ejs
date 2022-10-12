@@ -16,8 +16,9 @@
                 <section id="informacaocliente">
 
 
-                    <form class="formareadocliente" action="/user/areacliente" method="get"
-                        enctype="multipart/form-data">
+                    <form class="formareadocliente" action="/user/projetos/<%= dados.id  %>?_method=PUT" 
+                        method="post"
+                        >
                         <h1>Informações sobre o ambiente a ser reformado/decorado</h1>
 
 
@@ -181,17 +182,17 @@
 
                             <div class="input-group">
                                 <label for="comprimento">COMPRIMENTO</label>
-                                <input type="text" id="comprimento" name="comprimento" value="<%= dados.comprimento%>">
+                                <input type="text" id="comprimento" name="comprimento" value="<%= dados.comprimento %>">
                             </div>
 
                             <div class="input-group">
                                 <label for="largura">LARGURA</label>
-                                <input type="text" id="largura" name="largura" value="<%= dados.largura%>">
+                                <input type="text" id="largura" name="largura" value="<%= dados.largura %>">
                             </div>
 
                             <div class="input-group">
                                 <label for="altura">ALTURA (PÉ-DIREITO)</label>
-                                <input type="text" id="altura" name="altura" value="<%= dados.altura%>">
+                                <input type="text" id="altura" name="altura" value="<%= dados.altura %>">
                             </div>
 
                         </fieldset>
@@ -238,16 +239,16 @@
                             <p></p>
                             <div class="input-group">
                                 <label for="datetime1">Dia e horário</label>
-                                <input type="datetime-local" name="dataReuniao" id="datetime1"
-                                    value="<%=data%>">
+                                <input type="date" name="dataReuniao" id="dataReuniao"
+                                    value="<%=dados.dataReuniao%>">
                             </div>
                         </fieldset>
 
-                        <input hidden name="email_usuario" value="<%= data%>" />
+                        <input hidden name="email_usuario" value="<%= dados.email%>" />
                         <input hidden name="id_usuario"  />
                         <div class="buttons-container">
-                            <button class="editar"  type="submit"> Editar </button>
-                            <button class="deletar" type="submit">Deletar</button>
+                            <button class="editar"  type="submit">Enviar Modificações</button>
+                            <a class="deleteButton" href="/user/projetos/delete/<%= dados.id %>">Deletar Cadastro</a>
                         </div>
                     </form>
                 </section>
