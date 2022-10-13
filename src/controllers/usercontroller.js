@@ -5,7 +5,7 @@ const {
   especialidadeModel,
   fotoReformaModel,
 } = require("../database");
-const {format} = require('date-fns');
+const { format } = require("date-fns");
 
 const usercontroller = {
   cadastro: async (request, response) => {
@@ -53,15 +53,20 @@ const usercontroller = {
     const { id } = request.params;
     const editCadastro = await usuarioModel.findByPk(id);
 
-    const selectDataNascimento = format(new Date(editCadastro.dataNascimento), 'yyyy-MM-dd');
+    const selectDataNascimento = format(
+      new Date(editCadastro.dataNascimento),
+      "yyyy-MM-dd"
+    );
 
     const especialidade = await especialidadeModel.findAll();
 
     response.render("cadastroUpdate", {
-      editCadastro: {...editCadastro.toJSON(), dataNascimento:selectDataNascimento },
+      editCadastro: {
+        ...editCadastro.toJSON(),
+        dataNascimento: selectDataNascimento,
+      },
       especialidade,
     });
-    
   },
   update: (request, response) => {
     const {
@@ -248,8 +253,6 @@ const usercontroller = {
     });
     await reformaModel.sequelize.query('SET FOREIGN_KEY_CHECKS = 1'); // setting the flag back for security
 
-
-
     response.redirect("/user/areacliente");
   },
   novoprojeto: async (request, response) => {
@@ -258,6 +261,29 @@ const usercontroller = {
     });
   
   },
+
+  paginaDelecaoImagem: async (request, response) => {
+    const id = request.params.id
+    const dados = await fotoReformaModel.findOne({
+      where: {
+        id: id,
+      },
+      });
+    response.render("deleteFoto", { id, dados })
+  },
+
+  delecaoImagem: async (request, response) => {
+    const id = request.params.id
+    const dados = await fotoReformaModel.findOne({
+      where: {
+        id: id,
+      },
+    });
+    await fotoReformaModel.destroy({where: {id: id}, force: true })
+    return response.redirect(`/user/projetos/${dados.reformasId}`)
+  },
+
+
   reformaInfo: async (request, response) => {
     const usuariosId = request.session.userLogged.id;
     const {

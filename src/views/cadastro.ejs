@@ -4,11 +4,9 @@
   <%- include('./partials/headerNavBar') %>
   <link rel="stylesheet" href="/css/cadastro.css" />
   <script defer type="module" src="/js/updateFoto.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="/js/masks.js"></script>
+  <script src="//unpkg.com/vanilla-masker@1.1.1/lib/vanilla-masker.js"></script>
+  <script src="//unpkg.com/vanilla-masker@1.1.1/build/vanilla-masker.min.js"></script>
+  <script src="/js/masksCadastro.js"></script>
 
   <main>
     <section id="section2">
@@ -111,8 +109,7 @@
               type="tel"
               id="telefone"
               name="telefone"
-              placeholder="11999999999"
-              pattern="([0-9]{2})[0-9]{9}"
+              placeholder="(11) 99999 9999"
               value="<%= locals.oldData ? oldData.phone : null %>"
               required
             />
@@ -168,5 +165,6 @@
       </div>
     </section>
   </main>
+  <!-- <script src="vanilla-masker.min.js"></script> -->
 </body>
 <%- include('./partials/footer') %>
