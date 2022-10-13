@@ -261,6 +261,29 @@ const usercontroller = {
     });
   
   },
+
+  paginaDelecaoImagem: async (request, response) => {
+    const id = request.params.id
+    const dados = await fotoReformaModel.findOne({
+      where: {
+        id: id,
+      },
+      });
+    response.render("deleteFoto", { id, dados })
+  },
+
+  delecaoImagem: async (request, response) => {
+    const id = request.params.id
+    const dados = await fotoReformaModel.findOne({
+      where: {
+        id: id,
+      },
+    });
+    await fotoReformaModel.destroy({where: {id: id}, force: true })
+    return response.redirect(`/user/projetos/${dados.reformasId}`)
+  },
+
+
   reformaInfo: async (request, response) => {
     const usuariosId = request.session.userLogged.id;
     const {
