@@ -22,7 +22,7 @@ router.post('/areacliente', uploadFotoReforma.array('fotos'), usercontroller.ref
 router.get('/projetos', isAuthorized, usercontroller.projetos);
 router.get('/projetos/:id', isAuthorized, usercontroller.projetoShow);
 router.put('/projetos/:id', usercontroller.projetoUpdate);
-router.get('/projetos/delete/:id', isAuthorized, usercontroller.projetoDeleteShow);
+router.get('/projetos/delete/:id', usercontroller.projetoDeleteShow);
 router.delete('/projetos/:id', usercontroller.projetoDelete);
 router.get('/cadastro/:id', usercontroller.updateShow);
 router.put('/cadastro/:id', usercontroller.update);

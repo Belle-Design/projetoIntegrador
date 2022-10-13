@@ -243,6 +243,7 @@ const usercontroller = {
       where:{
         usuariosId :id
     },
+    
   });
     const fotosReformas = await fotoReformaModel.findAll({
       where:{
