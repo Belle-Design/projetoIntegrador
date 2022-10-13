@@ -28,6 +28,7 @@ router.get('/cadastro/:id', usercontroller.updateShow);
 router.put('/cadastro/:id', usercontroller.update);
 router.get('/delete/:id', usercontroller.deleteShow);
 router.delete('/delete/:id', usercontroller.delete);
-
+router.get('/projetos/delecaoImagem/:id', isAuthorized, usercontroller.paginaDelecaoImagem);
+router.delete('/projetos/delecaoImagem/:id', usercontroller.delecaoImagem);
 
 module.exports = router;

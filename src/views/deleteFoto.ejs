@@ -1,0 +1,25 @@
+<%- include('./partials/header') %>
+
+<body>
+  <%- include('./partials/headerNavBar') %>
+  <link rel="stylesheet" href="/css/cadastro.css" />
+  <link rel="stylesheet" href="/css/deleteFoto.css">
+
+  <main>
+    <section id="section2">
+      <div class="body">
+        <form
+          action="/user/projetos/delecaoImagem/<%= id%>?_method=DELETE" 
+          method="post">
+
+          <h1>Tem Certeza que deseja Deletar esta foto?</h1>
+          <img src="/img/fotos-clientes/<%= dados.fotos %>" class="foto-delecao" alt="">
+          <button class="botaoDeletar" type="submit">Deletar foto</button>
+
+      <a class="voltar" href="/user/projetos/<%= dados.reformasId%>">Voltar</a>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+<%- include('./partials/footer') %>

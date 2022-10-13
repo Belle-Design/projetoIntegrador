@@ -212,7 +212,7 @@
                                     <% fotos.forEach(imagem=> { %>
                                         <div class="fotos-container">
                                             <img src="/img/fotos-clientes/<%= imagem.fotos %>" alt="">
-                                            <button class="deletar-fotos">Deletar</button>
+                                            <a class="deletar-fotos" href="/user/projetos/delecaoImagem/<%= imagem.id%>">Deletar</a>
                                         </div>
                                         <% }) %>
 
