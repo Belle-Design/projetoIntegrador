@@ -239,19 +239,16 @@ const usercontroller = {
   projetoDelete: async (request, response) => {
     const { id } = request.params;
     
-    const reforma = await reformaModel.findOne({
-      where:{
-        usuariosId :id
-    },
-  });
-    const fotosReformas = await fotoReformaModel.findAll({
-      where:{
-        id: reforma.id
-      }
-    })
+    await reformaModel.sequelize.query('SET FOREIGN_KEY_CHECKS = 0');
+    await reformaModel.destroy({
+      where: {
+        id: id
+      },
+      force: true
+    });
+    await reformaModel.sequelize.query('SET FOREIGN_KEY_CHECKS = 1'); // setting the flag back for security
 
-    await fotoReformaModel.destroy({where: {fotosReformas}, force: true })
-    await reformaModel.destroy({ where: { reforma }, force: true }),
+
 
     response.redirect("/user/areacliente");
   },
