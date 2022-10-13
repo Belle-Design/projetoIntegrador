@@ -1,3 +1,7 @@
 window.addEventListener("load", function () {
-  $("#cep").mask("00000-000");
+  const cep = document.getElementById("cep");
+
+  cep.addEventListener("input", function () {
+    VMasker(cep).maskPattern("99999-999");
+  });
 });
