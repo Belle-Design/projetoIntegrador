@@ -248,7 +248,6 @@ const usercontroller = {
   projetoDelete: async (request, response) => {
     const { id } = request.params;
     
-
     response.redirect("/user/areacliente");
   },
   novoprojeto: async (request, response) => {
