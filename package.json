@@ -42,7 +42,8 @@
     "sequelize": "^6.21.6",
     "session": "^0.1.0",
     "uuid": "^8.3.2",
-    "uuidv4": "^6.2.13"
+    "uuidv4": "^6.2.13",
+    "vanilla-masker": "^1.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.18",

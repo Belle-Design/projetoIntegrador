@@ -9,7 +9,7 @@ window.addEventListener("load", function () {
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
-        if (json.logradouro) {
+        if (json.localidade) {
           document.getElementById("rua").value = json.logradouro;
           document.getElementById("bairro").value = json.bairro;
           document.getElementById("cidade").value = json.localidade;

@@ -5,7 +5,7 @@ const {
   especialidadeModel,
   fotoReformaModel,
 } = require("../database");
-const {format} = require('date-fns');
+const { format } = require("date-fns");
 
 const usercontroller = {
   cadastro: async (request, response) => {
@@ -53,15 +53,20 @@ const usercontroller = {
     const { id } = request.params;
     const editCadastro = await usuarioModel.findByPk(id);
 
-    const selectDataNascimento = format(new Date(editCadastro.dataNascimento), 'yyyy-MM-dd');
+    const selectDataNascimento = format(
+      new Date(editCadastro.dataNascimento),
+      "yyyy-MM-dd"
+    );
 
     const especialidade = await especialidadeModel.findAll();
 
     response.render("cadastroUpdate", {
-      editCadastro: {...editCadastro.toJSON(), dataNascimento:selectDataNascimento },
+      editCadastro: {
+        ...editCadastro.toJSON(),
+        dataNascimento: selectDataNascimento,
+      },
       especialidade,
     });
-    
   },
   update: (request, response) => {
     const {
