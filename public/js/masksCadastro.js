@@ -25,23 +25,4 @@ window.addEventListener("load", function () {
     inputHandler.bind(undefined, docMask, 14),
     false
   );
-
-  const cep = document.getElementById("cep");
-
-  cep.addEventListener("input", function () {
-    VMasker(cep).maskPattern("99999-999");
-  });
-
-  /* var telefone = document.getElementById("telefone");
-  var cpf = document.getElementById("cpf");
-
-  telefone.addEventListener("keypress", function () {
-    VMasker(telefone).maskPattern("(99) 99999-9999");
-    VMasker.toPattern(telefone, "(99) 9999-9999");
-  });
-
-  cpf.addEventListener("keypress", function () {
-    VMasker(cpf).maskPattern("999.999.999-99");
-    VMasker.toPattern(cpf, "999.999.999-99");
-  }); */
 });
