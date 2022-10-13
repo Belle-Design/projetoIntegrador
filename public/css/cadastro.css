@@ -173,7 +173,7 @@ a.deleteButton:hover {
   padding: 20px;
  
 }
-.botaoDeletarn:hover {
+.botaoDeletar:hover {
   text-decoration: underline;
   transition: all 0.3s ease-in;
   background-color: white;

@@ -1,0 +1,17 @@
+.foto-delecao {
+    height: 500px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.botaoDeletar, .voltar {
+    margin-left: 0;
+}
+
+
+

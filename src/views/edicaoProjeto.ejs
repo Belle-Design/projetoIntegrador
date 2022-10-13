@@ -8,21 +8,15 @@
             <script defer src="../js/domEdicaoProjeto.js"></script>
             <script defer src="/src/js/domEdicaoProjeto.js"></script>
 
-            <script src="/js/searchCep.js"></script>
-            <script src="//unpkg.com/vanilla-masker@1.1.1/lib/vanilla-masker.js"></script>
-            <script src="//unpkg.com/vanilla-masker@1.1.1/build/vanilla-masker.min.js"></script>
-            <script src="/js/masks.js"></script>
-
-
-
 
             <main>
 
                 <section id="informacaocliente">
 
 
-                    <form class="formareadocliente" action="/user/areacliente" method="get"
-                        enctype="multipart/form-data">
+                    <form class="formareadocliente" action="/user/projetos/<%= dados.id  %>?_method=PUT" 
+                        method="post"
+                        >
                         <h1>Informações sobre o ambiente a ser reformado/decorado</h1>
 
 
@@ -186,17 +180,17 @@
 
                             <div class="input-group">
                                 <label for="comprimento">COMPRIMENTO</label>
-                                <input type="text" id="comprimento" name="comprimento" value="<%= dados.comprimento%>">
+                                <input type="text" id="comprimento" name="comprimento" value="<%= dados.comprimento %>">
                             </div>
 
                             <div class="input-group">
                                 <label for="largura">LARGURA</label>
-                                <input type="text" id="largura" name="largura" value="<%= dados.largura%>">
+                                <input type="text" id="largura" name="largura" value="<%= dados.largura %>">
                             </div>
 
                             <div class="input-group">
                                 <label for="altura">ALTURA (PÉ-DIREITO)</label>
-                                <input type="text" id="altura" name="altura" value="<%= dados.altura%>">
+                                <input type="text" id="altura" name="altura" value="<%= dados.altura %>">
                             </div>
 
                         </fieldset>
@@ -216,7 +210,7 @@
                                     <% fotos.forEach(imagem=> { %>
                                         <div class="fotos-container">
                                             <img src="/img/fotos-clientes/<%= imagem.fotos %>" alt="">
-                                            <button class="deletar-fotos">Deletar</button>
+                                            <a class="deletar-fotos" href="/user/projetos/delecaoImagem/<%= imagem.id%>">Deletar</a>
                                         </div>
                                         <% }) %>
 
@@ -243,16 +237,16 @@
                             <p></p>
                             <div class="input-group">
                                 <label for="datetime1">Dia e horário</label>
-                                <input type="datetime-local" name="dataReuniao" id="datetime1"
-                                    value="<%=data%>">
+                                <input type="date" name="dataReuniao" id="dataReuniao"
+                                    value="<%=dados.dataReuniao%>">
                             </div>
                         </fieldset>
 
-                        <input hidden name="email_usuario" value="<%= data%>" />
+                        <input hidden name="email_usuario" value="<%= dados.email%>" />
                         <input hidden name="id_usuario"  />
                         <div class="buttons-container">
-                            <button class="editar"  type="submit"> Editar </button>
-                            <button class="deletar" type="submit">Deletar</button>
+                            <button class="editar"  type="submit">Enviar Modificações</button>
+                            <a class="deleteButton" href="/user/projetos/delete/<%= dados.id %>">Deletar Projeto</a>
                         </div>
                     </form>
                 </section>
