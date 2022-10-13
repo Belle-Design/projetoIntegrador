@@ -244,21 +244,17 @@ const usercontroller = {
   projetoDelete: async (request, response) => {
     const { id } = request.params;
     
-    const reforma = await reformaModel.findOne({
-      where:{
-        usuariosId :id
-    },
     
-  });
-    const fotosReformas = await fotoReformaModel.findAll({
-      where:{
-        id: reforma.id
-      }
-    })
 
-    await fotoReformaModel.destroy({where: {fotosReformas}, force: true })
-    await reformaModel.destroy({ where: { reforma }, force: true }),
 
+
+
+
+
+
+
+
+    
     response.redirect("/user/areacliente");
   },
   novoprojeto: async (request, response) => {
