@@ -244,14 +244,6 @@ const usercontroller = {
   projetoDelete: async (request, response) => {
     const { id } = request.params;
     
-    await reformaModel.sequelize.query('SET FOREIGN_KEY_CHECKS = 0');
-    await reformaModel.destroy({
-      where: {
-        id: id
-      },
-      force: true
-    });
-    await reformaModel.sequelize.query('SET FOREIGN_KEY_CHECKS = 1'); // setting the flag back for security
 
     response.redirect("/user/areacliente");
   },
