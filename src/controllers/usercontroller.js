@@ -112,12 +112,8 @@ const usercontroller = {
   },
   delete: async (request, response) => {
     const { id } = request.params;
-    const usuariosId = id;
-    const reformasId = id;
 
     await usuarioModel.destroy({ where: { id }, force: true });
-    await reformaModel.destroy({ where: { usuariosId }, force: true });
-    await fotoReformaModel.destroy({ where: { reformasId }, force: true });
 
     response.redirect("/index");
   },
@@ -182,6 +178,7 @@ const usercontroller = {
   },
   projetoShow: async (request, response) => {
     const id = request.params.id;
+
     const dados = await reformaModel.findOne({
       where: {
         id: id,
@@ -204,22 +201,95 @@ const usercontroller = {
       include: ["fotosReformas"],
     });
 
+    const selectData = format(new Date(dados.dataReuniao), 'yyyy-MM-dd');
     const item = dados.localReforma.split("_").join("");
-    let data = dados.dataReuniao.toString().slice(0, 16);
-
+  
     return response.render("edicaoProjeto", {
       userLogged: request.session.userLogged,
-      dados,
+      dados:{...dados.toJSON(), dataReuniao: selectData},
       fotos: dados.fotosReformas,
       item,
-      data,
     });
+  },
+  projetoUpdate: (request, response) => {
+    const {
+      localReforma,
+      comprimento,
+      largura,
+      altura,
+      fotos,
+      dataReuniao,
+    } = request.body;
+    const { id } = request.params;
+
+    reformaModel.update(
+      {
+        localReforma,
+        comprimento,
+        largura,
+        altura,
+        fotos,
+        dataReuniao,
+      },
+      { where: { id } }
+    );
+    response.redirect("/user/areacliente");
+  },
+  projetoDeleteShow: async (request, response) => {
+    const { id } = request.params;
+    const deleteProjeto = await reformaModel.findByPk(id);
+
+    response.render("deleteProjeto", { deleteProjeto });
+  },
+  projetoDelete: async (request, response) => {
+    const { id } = request.params;
+    
+    const reforma = await reformaModel.findOne({
+      where:{
+        usuariosId :id
+    },
+    
+  });
+    const fotosReformas = await fotoReformaModel.findAll({
+      where:{
+        id: reforma.id
+      }
+    })
+
+    await fotoReformaModel.destroy({where: {fotosReformas}, force: true })
+    await reformaModel.destroy({ where: { reforma }, force: true }),
+
+    response.redirect("/user/areacliente");
   },
   novoprojeto: async (request, response) => {
     return response.render("novoProjeto", {
       userLogged: request.session.userLogged,
     });
+  
   },
+
+  paginaDelecaoImagem: async (request, response) => {
+    const id = request.params.id
+    const dados = await fotoReformaModel.findOne({
+      where: {
+        id: id,
+      },
+      });
+    response.render("deleteFoto", { id, dados })
+  },
+
+  delecaoImagem: async (request, response) => {
+    const id = request.params.id
+    const dados = await fotoReformaModel.findOne({
+      where: {
+        id: id,
+      },
+    });
+    await fotoReformaModel.destroy({where: {id: id}, force: true })
+    return response.redirect(`/user/projetos/${dados.reformasId}`)
+  },
+
+
   reformaInfo: async (request, response) => {
     const usuariosId = request.session.userLogged.id;
     const {

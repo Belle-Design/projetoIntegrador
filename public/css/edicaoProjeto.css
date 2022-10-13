@@ -52,8 +52,9 @@ h1{
 
 .buttons-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    align-content: stretch;
+    align-items: flex-start;
 
 }
 
@@ -133,7 +134,7 @@ main form button {
     justify-content: center;
     align-items: center;
     width: 150px;
-    height: 44px;
+    height: 50px;
     background: #2b292a;
 
     color: #fff;
@@ -152,4 +153,32 @@ main form button:hover {
     background-color: white;
     color: black;
 }
+.deleteButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    width: 200px;
+    height: 44px;
+    background: #ff0202;
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+    border: none;
+    margin-top: 30px;
+    margin-left: 200px;
+  
+    cursor: pointer;
+    transition: all 600ms;
+    padding: 20px;
+   
+  }
+  .deleteButton:hover {
+    text-decoration: underline;
+    transition: all 0.3s ease-in;
+    background-color: white;
+    color: black;
+  }
+
+  
 
