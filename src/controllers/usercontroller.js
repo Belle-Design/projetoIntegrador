@@ -59,6 +59,9 @@ const usercontroller = {
     );
 
     const especialidade = await especialidadeModel.findAll();
+    const especialidadeCadastrada = await especialidadeModel.findByPk(
+      editCadastro.especialidadesId
+    );
 
     response.render("cadastroUpdate", {
       editCadastro: {
@@ -66,6 +69,7 @@ const usercontroller = {
         dataNascimento: selectDataNascimento,
       },
       especialidade,
+      especialidadeCadastrada,
     });
   },
   update: (request, response) => {
