@@ -125,23 +125,20 @@
           </div>
           <div class="input">
             <label for="especialidade">Cliente ou Arquiteto</label>
+
             <select name="especialidadesId" id="especialidadesId" required>
               <option value="" disabled>- Selecione Especialidade -</option>
-              <% especialidade.forEach(especialidade=> { %>
-              <option value="<%= especialidade.id%>">
+              <% especialidade.forEach(especialidade=> { if(especialidade.id ===
+              especialidadeCadastrada.id) { %>
+              <option value="<%= especialidade.id%>" selected>
                 <%= especialidade.nome %>
-              </option>
-              <% }); %> <% if (especialidadeCadastrada.id != "undefined") { %>
-              <option value="<%= especialidadeCadastrada.id%>" selected>
-                <%= especialidadeCadastrada.nome %>
               </option>
               <% } else { %>
-              <option value="" disabled>- Selecione Especialidade -</option>
-              <% especialidade.forEach(especialidade=> { %>
+
               <option value="<%= especialidade.id%>">
                 <%= especialidade.nome %>
               </option>
-              <% })}; %>
+              <% }}); %>
             </select>
           </div>
           <div class="input">
