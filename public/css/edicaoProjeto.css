@@ -4,6 +4,7 @@
 
 .fotos-carregadas img {
     width: 200px;
+    height: 300px;
 }
 
 .fotos-carregadas{
@@ -31,7 +32,7 @@
     align-items: center;
     margin: 20px;
     margin-bottom: 0;
-    height: 200px;
+    height: 350px;
 }
 
 .foto-preview {

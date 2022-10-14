@@ -7,6 +7,7 @@ const {
 } = require("../database");
 const { format } = require("date-fns");
 
+
 const usercontroller = {
   cadastro: async (request, response) => {
     const especialidade = await especialidadeModel.findAll();
@@ -117,8 +118,32 @@ const usercontroller = {
   delete: async (request, response) => {
     const { id } = request.params;
 
-    await usuarioModel.destroy({ where: { id }, force: true });
+    const reformas = await reformaModel.findAll({
+      where: {
+        usuariosId: id
+      },
+      attributes:['id']
+    })
+    const reformasId = reformas.map((reforma)=>reforma.id)
 
+    await fotoReformaModel.destroy({
+      where: {
+        reformasId
+      },
+      force: true
+    })
+    await reformaModel.destroy({
+      where: {
+        usuariosId: id
+      },
+      force: true
+    });
+    await usuarioModel.destroy({
+      where: {
+        id
+      },
+      force: true
+    });
     response.redirect("/index");
   },
   entrar: async (request, response) => {
@@ -215,28 +240,27 @@ const usercontroller = {
       item,
     });
   },
-  projetoUpdate: (request, response) => {
+  projetoUpdate: async (request, response) => {
     const {
       localReforma,
       comprimento,
       largura,
       altura,
-      fotos,
       dataReuniao,
     } = request.body;
     const { id } = request.params;
 
-    reformaModel.update(
+    await reformaModel.update(
       {
         localReforma,
         comprimento,
         largura,
         altura,
-        fotos,
         dataReuniao,
       },
       { where: { id } }
     );
+    
     response.redirect("/user/areacliente");
   },
   projetoDeleteShow: async (request, response) => {
@@ -247,21 +271,19 @@ const usercontroller = {
   },
   projetoDelete: async (request, response) => {
     const { id } = request.params;
-    
-    await reformaModel.sequelize.query('SET FOREIGN_KEY_CHECKS = 0');
-    await reformaModel.destroy({
-      where: {
-        id: id
-      },
-      force: true
-    });
+  
     await fotoReformaModel.destroy({
       where: {
         reformasId: id
       },
       force: true
     })
-    await reformaModel.sequelize.query('SET FOREIGN_KEY_CHECKS = 1'); // setting the flag back for security
+    await reformaModel.destroy({
+      where: {
+        id: id
+      },
+      force: true
+    });
     response.redirect("/user/areacliente");
   },
   novoprojeto: async (request, response) => {

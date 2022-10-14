@@ -221,7 +221,7 @@
                                             for(i=0; i<lista.length; i++){
                                                 let src = URL.createObjectURL(event.target.files[i])
                                                 const positionSelect = document.querySelector('.preview');
-                                                let html = '<img class="foto-preview" src="/img/foto-projeto-andamento.jpg" alt="">';
+                                                let html = '<img class="foto-preview" src="/img/foto-projeto-andamento.jpg" alt="" >';
                                                 document.querySelector('.preview').insertAdjacentHTML("afterend", html)
                                                 document.querySelector('.foto-preview').src = `${src}`
                                             }
