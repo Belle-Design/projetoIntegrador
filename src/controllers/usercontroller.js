@@ -7,7 +7,6 @@ const {
 } = require("../database");
 const { format } = require("date-fns");
 
-
 const usercontroller = {
   cadastro: async (request, response) => {
     const especialidade = await especialidadeModel.findAll();
@@ -30,6 +29,7 @@ const usercontroller = {
     } = request.body;
 
     const senhaHash = await bcrypt.hash(senha, 8);
+    const confirmarsenhaHash = await bcrypt.hash(confirmarsenha, 8);
 
     const fotoAvatar = request.file?.filename || "avatarDefault.png";
 
@@ -38,7 +38,7 @@ const usercontroller = {
       sobrenome,
       email,
       senha: senhaHash,
-      confirmarsenha,
+      confirmarsenha: confirmarsenhaHash,
       cpf,
       telefone,
       dataNascimento,
@@ -73,12 +73,12 @@ const usercontroller = {
       especialidadeCadastrada,
     });
   },
-  update: (request, response) => {
+  update: async (request, response) => {
     const {
       nome,
       sobrenome,
       email,
-      senhaHash,
+      senha,
       confirmarsenha,
       cpf,
       telefone,
@@ -90,13 +90,16 @@ const usercontroller = {
     } = request.body;
     const { id } = request.params;
 
+    const senhaHash = await bcrypt.hash(senha, 8);
+    const confirmarsenhaHash = await bcrypt.hash(confirmarsenha, 8);
+
     usuarioModel.update(
       {
         nome,
         sobrenome,
         email,
         senha: senhaHash,
-        confirmarsenha,
+        confirmarsenha: confirmarsenhaHash,
         cpf,
         telefone,
         dataNascimento,
@@ -120,29 +123,29 @@ const usercontroller = {
 
     const reformas = await reformaModel.findAll({
       where: {
-        usuariosId: id
+        usuariosId: id,
       },
-      attributes:['id']
-    })
-    const reformasId = reformas.map((reforma)=>reforma.id)
+      attributes: ["id"],
+    });
+    const reformasId = reformas.map((reforma) => reforma.id);
 
     await fotoReformaModel.destroy({
       where: {
-        reformasId
+        reformasId,
       },
-      force: true
-    })
+      force: true,
+    });
     await reformaModel.destroy({
       where: {
-        usuariosId: id
+        usuariosId: id,
       },
-      force: true
+      force: true,
     });
     await usuarioModel.destroy({
       where: {
-        id
+        id,
       },
-      force: true
+      force: true,
     });
     response.redirect("/index");
   },
@@ -230,24 +233,19 @@ const usercontroller = {
       include: ["fotosReformas"],
     });
 
-    const selectData = format(new Date(dados.dataReuniao), 'yyyy-MM-dd');
+    const selectData = format(new Date(dados.dataReuniao), "yyyy-MM-dd");
     const item = dados.localReforma.split("_").join("");
-  
+
     return response.render("edicaoProjeto", {
       userLogged: request.session.userLogged,
-      dados:{...dados.toJSON(), dataReuniao: selectData},
+      dados: { ...dados.toJSON(), dataReuniao: selectData },
       fotos: dados.fotosReformas,
       item,
     });
   },
   projetoUpdate: async (request, response) => {
-    const {
-      localReforma,
-      comprimento,
-      largura,
-      altura,
-      dataReuniao,
-    } = request.body;
+    const { localReforma, comprimento, largura, altura, dataReuniao } =
+      request.body;
     const { id } = request.params;
 
     await reformaModel.update(
@@ -260,7 +258,7 @@ const usercontroller = {
       },
       { where: { id } }
     );
-    
+
     response.redirect("/user/areacliente");
   },
   projetoDeleteShow: async (request, response) => {
@@ -271,18 +269,18 @@ const usercontroller = {
   },
   projetoDelete: async (request, response) => {
     const { id } = request.params;
-  
+
     await fotoReformaModel.destroy({
       where: {
-        reformasId: id
+        reformasId: id,
       },
-      force: true
-    })
+      force: true,
+    });
     await reformaModel.destroy({
       where: {
-        id: id
+        id: id,
       },
-      force: true
+      force: true,
     });
     response.redirect("/user/areacliente");
   },
@@ -290,30 +288,28 @@ const usercontroller = {
     return response.render("novoProjeto", {
       userLogged: request.session.userLogged,
     });
-  
   },
 
   paginaDelecaoImagem: async (request, response) => {
-    const id = request.params.id
-    const dados = await fotoReformaModel.findOne({
-      where: {
-        id: id,
-      },
-      });
-    response.render("deleteFoto", { id, dados })
-  },
-
-  delecaoImagem: async (request, response) => {
-    const id = request.params.id
+    const id = request.params.id;
     const dados = await fotoReformaModel.findOne({
       where: {
         id: id,
       },
     });
-    await fotoReformaModel.destroy({where: {id: id}, force: true })
-    return response.redirect(`/user/projetos/${dados.reformasId}`)
+    response.render("deleteFoto", { id, dados });
   },
 
+  delecaoImagem: async (request, response) => {
+    const id = request.params.id;
+    const dados = await fotoReformaModel.findOne({
+      where: {
+        id: id,
+      },
+    });
+    await fotoReformaModel.destroy({ where: { id: id }, force: true });
+    return response.redirect(`/user/projetos/${dados.reformasId}`);
+  },
 
   reformaInfo: async (request, response) => {
     const usuariosId = request.session.userLogged.id;
